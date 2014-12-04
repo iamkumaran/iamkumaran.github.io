@@ -1,12 +1,10 @@
 var mov = 0,  
 	physics, 
 	lastFrame = new Date().getTime(),
-	img_pillars = new Image,
-	img_coin = [],
-	beams = [],
+	beams = {obj:[], img:new Image()},
 	player = {obj:null, hits:0, life:3, balls:[new Image(), new Image(), new Image(), new Image()], openBall: new Image(), scores: {pt:0, mt: 0}},
 	walls = {},
-	coins = [],
+	coins = {obj:[], img:[]},
 	destroyObj = [],
 	btnActions;
 var docBody = document.getElementById('container'),
@@ -18,7 +16,7 @@ var docBody = document.getElementById('container'),
 	loaderObj = document.getElementById('loader'),
 	menuObj = document.getElementById('game-menu'),
 	overObj = document.getElementById('over-menu'),
-	cvObj = document.getElementById("b2dCanvas"),
+	cvObj = document.getElementById("canvas"),
 	bangObj = document.getElementById("bang");
 
 (function() {
@@ -128,19 +126,20 @@ var docBody = document.getElementById('container'),
 
 	Physics.prototype.collision = function() {
 		this.listener = new Box2D.Dynamics.b2ContactListener();
-		
+
 		this.listener.BeginContact = function(contact,impulse) {
+			if(physics.getGaveOver()) return false;
 			if(contact.GetFixtureB().GetBody().GetUserData().details.userData.name == 'coins'){
 				destroyObj.push(contact.GetFixtureB().GetBody());
-				
+
 				var x = player.obj.GetUserData();
 				x.details.image = player.openBall;
 				player.obj.SetUserData(x);
-				
-				
-				scorePtObj.innerText = player.scores.pt++;
+
+				player.scores.pt++;
+				scorePtObj.innerText = player.scores.pt;
 			}
-			
+
 			if(contact.GetFixtureA().GetBody().GetUserData().details.userData.name == 'pillar' || contact.GetFixtureA().GetBody().GetUserData().details.userData.name == 'wall'){
 				//return false;
 				if(physics.getGaveOver()) return false;
@@ -148,24 +147,25 @@ var docBody = document.getElementById('container'),
 					player.hits++;
 				else
 					player.hits = player.life; //set game over
-				//console.log(player.hits+' >= '+player.life)
+
 				btnActions.speeder = 0;
-				
-				
+
 				var x = player.obj.GetUserData();
 				x.details.image = player.balls[player.hits]; //openBall
 				x.fixtureDef.density = 1;
 				x.fixtureDef.restitution = 1;
 				x.fixtureDef.friction = 4
 				player.obj.SetUserData(x);
-				
-			
+
 				showHiteffect();
-				
+
 				if(player.hits >= player.life){
 					physics.setGaveOver();
 					window.removeEventListener("keydown", btnActions.keyActions, false);
 					overObj.style.display = 'block';
+					var collectedObj = overObj.querySelector('.collected');
+					collectedObj.innerHTML = 'Fruits Collected: <span>'+player.scores.pt+'</span>';
+					collectedObj.style.display = 'block';
 					return false;
 				}
 				
@@ -186,7 +186,6 @@ var docBody = document.getElementById('container'),
 		};
 		
 		this.listener.PostSolve = function(contact,impulse) {
-			//contact.SetEnabled(false);
 			var bodyA = contact.GetFixtureA().GetBody().GetUserData(),
 				bodyB = contact.GetFixtureB().GetBody().GetUserData();
 
@@ -232,8 +231,7 @@ var docBody = document.getElementById('container'),
 		this.definition.position = new b2Vec2(details.x || 0, details.y || 0);
 		this.definition.linearVelocity = new b2Vec2(details.vx || 0, details.vy || 0);
 		this.definition.userData = this;
-		this.definition.type = details.type == "static" ? b2Body.b2_staticBody :
-														  b2Body.b2_dynamicBody;
+		this.definition.type = details.type == "static" ? b2Body.b2_staticBody : b2Body.b2_dynamicBody;
 
 		// Create the Body
 		this.body = physics.world.CreateBody(this.definition);
@@ -256,11 +254,11 @@ var docBody = document.getElementById('container'),
 				details.radius = details.radius || this.defaults.radius;
 				this.fixtureDef.shape = new b2CircleShape(details.radius);
 				this.fixtureDef.isSensor = true;
-		  /*coin.fixtureDef.friction = 0;
-		  coin.fixtureDef.density = 0;
-		  coin.fixtureDef.restitution = 0;
-		  coin.fixtureDef.filter.categoryBits = 4;
-			coin.fixtureDef.filter.maskBits = 9;*/
+				/*coin.fixtureDef.friction = 0;
+				coin.fixtureDef.density = 0;
+				coin.fixtureDef.restitution = 0;
+				coin.fixtureDef.filter.categoryBits = 4;
+				coin.fixtureDef.filter.maskBits = 9;*/
 				break;
 			case "polygon":
 				this.fixtureDef.shape = new b2PolygonShape();
@@ -272,8 +270,7 @@ var docBody = document.getElementById('container'),
 				details.height = details.height || this.defaults.height;
 
 				this.fixtureDef.shape = new b2PolygonShape();
-				this.fixtureDef.shape.SetAsBox(details.width/2,
-												details.height/2);
+				this.fixtureDef.shape.SetAsBox(details.width/2, details.height/2);
 				if(details.sensor) this.fixtureDef.isSensor = true;
 				break;
 		}
@@ -312,7 +309,6 @@ var docBody = document.getElementById('container'),
 		context.save();
 		context.translate(pos.x,pos.y);
 		context.rotate(angle);
-
 
 		if(this.details.color) {
 			context.fillStyle = this.details.color;
@@ -465,10 +461,10 @@ var docBody = document.getElementById('container'),
 				y = inner_height; //25
 				bool = 1;
 			}
-			beams.push(new Body(physics, { image: img_pillars, type: "static", x: x, y: y, height: ht,  width: wt, userData:{name:'pillar'}, sensor: false }));
+			beams.obj.push(new Body(physics, { image: beams.img, type: "static", x: x, y: y, height: ht,  width: wt, userData:{name:'pillar'}, sensor: false }));
 		}
-		
-		var beamWidth = beams[beams.length-1].details.x+8;
+
+		var beamWidth = beams.obj[beams.obj.length-1].details.x+8;
 		// Create some walls
 		walls.left = new Body(physics, { color: "rgb(93, 198, 250)", type: "static", x: 0, y: 0, height: physics.element.height,  width: 0.5, userData:{name:'wall'} });
 		walls.right = new Body(physics, { color: "red", type: "static", x: beamWidth, y: 0, height: physics.element.height,  width: 0.5, userData:{name:'wall'}});
@@ -486,8 +482,8 @@ var docBody = document.getElementById('container'),
 			x = i;
 			y = Math.sin(counter) / 2 + 18;
 			counter += increase * i;
-			var coin = new Body(physics, { shape: 'circle2', image: img_coin[Math.floor(Math.random()*img_coin.length)], type: "static", x: x, y: y, height: 1.4,  width: 1.4, radius:1.4/2, userData:{name:'coins', value:1, i:i}});
-			coins.push(coin);
+			var coin = new Body(physics, { shape: 'circle2', image: coins.img[Math.floor(Math.random()*coins.img.length)], type: "static", x: x, y: y, height: 1.4,  width: 1.4, radius:1.4/2, userData:{name:'coins', value:1, i:i}});
+			coins.obj.push(coin);
 		}
 	}
 
@@ -504,17 +500,17 @@ var docBody = document.getElementById('container'),
 				$i++;
 				if($i == imgArray.length){
 					for(var i = 0; i<=21-1; i++){
-						img_coin[i] = new Image();
-						img_coin[i].src = 'images/coins/c'+(i+1)+'.png';
+						coins.img[i] = new Image();
+						coins.img[i].src = 'images/coins/c'+(i+1)+'.png';
 					}
-					
-					img_pillars.src = 'images/log.png';
+
+					beams.img.src = 'images/log.png';
 					player.balls[0].src = 'images/smily-40.png';
 					player.balls[1].src = 'images/smily-40-1.png';
 					player.balls[2].src = 'images/smily-40-2.png';
 					player.balls[3].src = 'images/smily-40-3.png';
 					player.openBall.src = 'images/smily-40-eat.png';
-					
+
 					createWorld();
 					requestAnimationFrame(gameLoop);
 					setTimeout(function(){physics.pause();}, 1000);
@@ -526,7 +522,6 @@ var docBody = document.getElementById('container'),
 			}
 		}
 		loadImg();
-
 	}
 
 	window.addEventListener("load",init);
@@ -588,5 +583,3 @@ setWindowSize();
 		};
 	}
 }());
-
-
