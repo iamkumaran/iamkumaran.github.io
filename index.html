@@ -20,13 +20,42 @@
 		</div>
 		<div id="game-menu" class="full-view">
 			<div class="overlay"></div>
+			<div class="logo"></div>
 			<div class="body">
 				<div><button data-action="start">Start Game</button></div>
-				<div><button data-action="how-to-play">How to Play</button></div>
+				
+				<div class="controls">
+					<h3>Controls</h3>
+					<ul>
+						<li><span class="space-key"></span><span class="c2">&nbsp; - Tap to fly the Pacman</span></li>
+						<li><span class="esc-key"></span><span class="c2">&nbsp; - Tap to Pause/Resume game</span></li>
+					</ul>
+				</div>
+				
+				<!-- <div>Share and spread the game
+					<div>
+						FaceBook:
+						<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+					</div>
+					<div>Twitter:<a class="twitter-share-button" href="https://twitter.com/share">Tweet</a></div>
+				</div> -->
 			</div>
 		</div>
+		
+		<div id="tip-menu" class="full-view">
+			<div class="body">
+				<h3>Tips</h3>
+				<ul>
+					<li>Spacebar - tap to fly the Pacman</li>
+					<li>Esc - To Pause/Resume game</li>
+				</ul>
+			</div>
+			<button>Press Spacebar to play</button>
+		</div>
+		
 		<div id="pause-menu" class="full-view">
 			<div class="overlay"></div>
+			<div class="logo"></div>
 			<div class="body">
 				<h2>Game Paused!</h2>
 				<button data-action="resume">Resume Game</button>
@@ -35,6 +64,7 @@
 		</div>
 		<div id="over-menu" class="full-view">
 			<div class="overlay"></div>
+			<div class="logo"></div>
 			<div class="body">
 				<h2>Game Over!</h2>
 				<div class="collected"></div>
@@ -44,6 +74,7 @@
 		</div>
 		<div id="loader" class="full-view">
 			<div class="overlay"></div>
+			<div class="logo"></div>
 			<div class="body">
 				<h3>Loading game, please wait...</h3>
 				<div id="spinningSquaresG"><div id="spinningSquaresG_1" class="spinningSquaresG"></div><div id="spinningSquaresG_2" class="spinningSquaresG"></div><div id="spinningSquaresG_3" class="spinningSquaresG"></div><div id="spinningSquaresG_4" class="spinningSquaresG"></div><div id="spinningSquaresG_5" class="spinningSquaresG"></div><div id="spinningSquaresG_6" class="spinningSquaresG"></div><div id="spinningSquaresG_7" class="spinningSquaresG"></div><div id="spinningSquaresG_8" class="spinningSquaresG"></div></div>

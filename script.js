@@ -374,7 +374,7 @@ var docBody = document.getElementById('container'),
 		setPillarsAndWalls(physics);
 		setCoins(physics);
 
-		player.obj = new Body(physics, {shape: 'circle', image:player.balls[player.hits], x: 15, y: 12, width: 2, height:2, radius:1, userData:{name:'player'} }).body;
+		player.obj = new Body(physics, {shape: 'circle', image:player.balls[player.hits], x: 5, y: 12, width: 2, height:2, radius:1, userData:{name:'player'} }).body;
 		
 /* 		setInterval(function(){
 			//btnActions.keyActions();
@@ -443,7 +443,7 @@ var docBody = document.getElementById('container'),
 			arr.push(i);
 		}
 		//arr[Math.floor(Math.random()*arr.length)];
-		for (var i = 2; i < 3000; i++){
+		for (var i = 5; i < 3000; i++){
 			ht = ht - arr[Math.floor(Math.random()*arr.length)];
 			//console.log('ov: '+ht)
 			if(ht > orig_ht){
@@ -478,7 +478,7 @@ var docBody = document.getElementById('container'),
 		// 100 iterations
 		var increase = Math.PI * 2 / 100;
 
-		for (var i = 20; i <= 15000; i +=6 ) {
+		for (var i = 25; i <= 15000; i +=6 ) {
 			x = i;
 			y = Math.sin(counter) / 2 + 18;
 			counter += increase * i;
@@ -489,8 +489,7 @@ var docBody = document.getElementById('container'),
 
 	function init() {
 		var preloader = [];
-		var imgArray = ['images/log.png', 'images/smily-40.png', 'images/smily-40-1.png', 'images/smily-40-2.png', 'images/smily-40-3.png',
-			'images/coins/c1.png', 'images/coins/c2.png', 'images/coins/c3.png', 'images/coins/c4.png', 'images/coins/c5.png', 'images/coins/c6.png', 'images/coins/c7.png', 'images/coins/c8.png', 'images/coins/c9.png', 'images/coins/c10.png', 'images/coins/c11.png', 'images/coins/c12.png', 'images/coins/c13.png', 'images/coins/c14.png', 'images/coins/c15.png', 'images/coins/c16.png', 'images/coins/c17.png', 'images/coins/c18.png', 'images/coins/c19.png', 'images/coins/c20.png', 'images/coins/c21.png', 'images/bang-hit.png'];
+		var imgArray = ['images/flappy-pacman-logo.png', 'images/log.png', 'images/smily-40.png', 'images/smily-40-1.png', 'images/smily-40-2.png', 'images/smily-40-3.png', 'images/coins/c1.png', 'images/coins/c2.png', 'images/coins/c3.png', 'images/coins/c4.png', 'images/coins/c5.png', 'images/coins/c6.png', 'images/coins/c7.png', 'images/coins/c8.png', 'images/coins/c9.png', 'images/coins/c10.png', 'images/coins/c11.png', 'images/coins/c12.png', 'images/coins/c13.png', 'images/coins/c14.png', 'images/coins/c15.png', 'images/coins/c16.png', 'images/coins/c17.png', 'images/coins/c18.png', 'images/coins/c19.png', 'images/coins/c20.png', 'images/coins/c21.png', 'images/bang-hit.png'];
 
 		var $i = 0;
 		function loadImg(){
