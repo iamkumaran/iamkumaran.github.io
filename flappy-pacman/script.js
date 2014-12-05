@@ -6,7 +6,7 @@ var mov = 0,
 	walls = {},
 	coins = {obj:[], img:[]},
 	destroyObj = [],
-	btnActions;
+	btnActions, is_started = false;
 var docBody = document.getElementById('container'),
 	scoresObj = document.getElementById('scores'),
 	scoreMtObj = scoresObj.querySelector('.mt'),
@@ -17,7 +17,8 @@ var docBody = document.getElementById('container'),
 	menuObj = document.getElementById('game-menu'),
 	overObj = document.getElementById('over-menu'),
 	cvObj = document.getElementById("canvas"),
-	bangObj = document.getElementById("bang");
+	bangObj = document.getElementById("bang"),
+	tipObj = document.getElementById("tip-menu");
 
 (function() {
 	var b2Vec2 = Box2D.Common.Math.b2Vec2,
@@ -374,7 +375,7 @@ var docBody = document.getElementById('container'),
 		setPillarsAndWalls(physics);
 		setCoins(physics);
 
-		player.obj = new Body(physics, {shape: 'circle', image:player.balls[player.hits], x: 5, y: 12, width: 2, height:2, radius:1, userData:{name:'player'} }).body;
+		player.obj = new Body(physics, {shape: 'circle', image:player.balls[player.hits], x: 5, y: 20, width: 2, height:2, radius:1, userData:{name:'player'} }).body;
 		
 /* 		setInterval(function(){
 			//btnActions.keyActions();
@@ -383,7 +384,7 @@ var docBody = document.getElementById('container'),
 		}, 100); */
 
 		/*Event Bindings*/
-		window.addEventListener("keydown", btnActions.keyActions, false);
+		//window.addEventListener("keydown", btnActions.keyActions, false);
 
 		for(var i=0; i<btnObj.length; i++){
 			btnObj[i].addEventListener("click", function(e){
@@ -393,7 +394,10 @@ var docBody = document.getElementById('container'),
 						break;
 					case 'start':
 						menuObj.style.display = 'none';
-						btnActions.pauseOrResume();
+						tipObj.style.display = 'block';
+						btnActions.pauseOrResume(true);
+						/*Event Bindings*/
+						window.addEventListener("keydown", btnActions.keyActions, false);
 						break;
 				}
 			});
@@ -407,9 +411,15 @@ var docBody = document.getElementById('container'),
 				btnActions.pauseOrResume();
 				return false;
 			}
-			if(physics.getPlayStatus()) return false;
+			if(is_started && physics.getPlayStatus()) return false;
 			if(player.hits == player.life){
 				return false;
+			}
+			
+			if(e && !is_started){
+				tipObj.style.display = 'none';
+				physics.resume();
+				is_started = true;
 			}
 			var vel = player.obj.GetLinearVelocity();
 			vel.x = (player.hits) ? 10 - (player.hits*2) : 10;
@@ -421,13 +431,17 @@ var docBody = document.getElementById('container'),
 			player.obj.ApplyImpulse(im, player.obj.GetPosition());
 			//console.log(player.obj)
 		},
-		pauseOrResume: function(){
+		pauseOrResume: function(is_pause){
 			if(!physics.getPlayStatus()){
 				physics.pause();
 				pauseObj.style.display = 'block';
 			}else{ 
 				physics.resume();
 				pauseObj.style.display = 'none';
+			}
+			if(is_pause){
+				physics.pause();
+				return false;
 			}
 		}
 	}
