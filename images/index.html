@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flappy Pacman - HTML5 Game</title>
+	<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div id="container">
+		<div id="sky-layer">
+			<div id="clouds">
+				<div class="cloud x1"></div>
+				<!-- Time for multiple clouds to dance around -->
+				<div class="cloud x2"></div>
+				<div class="cloud x3"></div>
+				<div class="cloud x4"></div>
+				<div class="cloud x5"></div>
+			</div>
+		</div>
+		<div id="game-menu" class="full-view">
+			<div class="overlay"></div>
+			<div class="logo"></div>
+			<div class="body">
+				<div><button data-action="start">Start Game</button></div>
+				
+				<div class="controls">
+					<h3>Controls</h3>
+					<ul>
+						<li><span class="space-key"></span><span class="c2">&nbsp; - Tap to fly the Pacman</span></li>
+						<li><span class="esc-key"></span><span class="c2">&nbsp; - Tap to Pause/Resume game</span></li>
+					</ul>
+				</div>
+				
+				<!-- <div>Share and spread the game
+					<div>
+						FaceBook:
+						<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+					</div>
+					<div>Twitter:<a class="twitter-share-button" href="https://twitter.com/share">Tweet</a></div>
+				</div> -->
+			</div>
+		</div>
+		
+		<div id="tip-menu" class="full-view">
+			<div class="body">
+				<h3>Tips</h3>
+				<ul>
+					<li>Spacebar - tap to fly the Pacman</li>
+					<li>Esc - To Pause/Resume game</li>
+				</ul>
+			</div>
+			<button>Press Spacebar to play</button>
+		</div>
+		
+		<div id="pause-menu" class="full-view">
+			<div class="overlay"></div>
+			<div class="logo"></div>
+			<div class="body">
+				<h2>Game Paused!</h2>
+				<button data-action="resume">Resume Game</button>
+				<p>(OR) Press <span>Esc</span> key to resume game.</p>
+			</div>
+		</div>
+		<div id="over-menu" class="full-view">
+			<div class="overlay"></div>
+			<div class="logo"></div>
+			<div class="body">
+				<h2>Game Over!</h2>
+				<div class="collected"></div>
+				<button onclick="window.location.reload();">back</button>
+				<div><a class="twitter-share-button" href="https://twitter.com/share">Tweet</a></div>
+			</div>
+		</div>
+		<div id="loader" class="full-view">
+			<div class="overlay"></div>
+			<div class="logo"></div>
+			<div class="body">
+				<h3>Loading game, please wait...</h3>
+				<div id="spinningSquaresG"><div id="spinningSquaresG_1" class="spinningSquaresG"></div><div id="spinningSquaresG_2" class="spinningSquaresG"></div><div id="spinningSquaresG_3" class="spinningSquaresG"></div><div id="spinningSquaresG_4" class="spinningSquaresG"></div><div id="spinningSquaresG_5" class="spinningSquaresG"></div><div id="spinningSquaresG_6" class="spinningSquaresG"></div><div id="spinningSquaresG_7" class="spinningSquaresG"></div><div id="spinningSquaresG_8" class="spinningSquaresG"></div></div>
+			</div>
+		</div>
+		<div id="scores">
+			<div class="mt">KM</div>
+			<div class="pt">0</div>
+		</div>
+		<div id="bang"></div>
+		<canvas id="canvas"></canvas>
+	</div>
+	<script src="Box2dWeb-2.1.a.3.min.js"></script>
+	<script src="script.js"></script>
+	<script type="text/javascript">
+		window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+</script>
+</body></html>
