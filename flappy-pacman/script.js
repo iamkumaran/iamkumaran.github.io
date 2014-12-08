@@ -2,11 +2,12 @@ var mov = 0,
 	physics, 
 	lastFrame = new Date().getTime(),
 	beams = {obj:[], img:new Image()},
-	player = {obj:null, hits:0, life:3, balls:[new Image(), new Image(), new Image(), new Image()], openBall: new Image(), scores: {pt:0, mt: 0}},
+	player = {obj:null, hits:0, life:3, balls:[new Image(), new Image(), new Image(), new Image()], openBall: new Image(), scores: {pt:0, mt: 0}, needScore:1000},
 	walls = {},
 	coins = {obj:[], img:[]},
 	destroyObj = [],
-	btnActions, is_started = false;
+	btnActions, 
+	is_started = false;
 var docBody = document.getElementById('container'),
 	scoresObj = document.getElementById('scores'),
 	scoreMtObj = scoresObj.querySelector('.mt'),
@@ -139,6 +140,8 @@ var docBody = document.getElementById('container'),
 
 				player.scores.pt++;
 				scorePtObj.innerText = player.scores.pt;
+				
+				//if(player.scores.pt >= )
 			}
 
 			if(contact.GetFixtureA().GetBody().GetUserData().details.userData.name == 'pillar' || contact.GetFixtureA().GetBody().GetUserData().details.userData.name == 'wall'){
