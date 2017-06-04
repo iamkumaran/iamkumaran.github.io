@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+  <body>
+    <div class="container">
+      <h1>CSS Variables</h1>
+
+      <blockquote>CSS variables not to be confused with SASS or LESS variable.</blockquote>
+
+      <p>Variable is the one of main reason CSS Preprossor like SASS or LESS exist at all. Look at this simple SASS example,</p>
+
+      <p data-height="274" data-theme-id="0" data-slug-hash="QgWJzW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="QgWJzW" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgWJzW/">QgWJzW</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+      <p>The above code would do nothing in a browser. The browser wouldn't understand the declarations and toss them out. Preprocessors need to compile into CSS to be used. This code would compile to:</p>
+
+      <pre><code class="language-css">
+      div{
+        border: 1px solid red;
+        color: red;
+      }
+      </code></pre>
+
+      <p data-height="269" data-theme-id="0" data-slug-hash="rwNQqW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="rwNQqW" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/rwNQqW/">rwNQqW</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+      <p>This is now valid CSS. The variable was part of the preprocessor language, not CSS itself. Once the code compiles, the variables are gone.</p>
+
+
+      <p>Now CSS started supporting CSS variables and allows you to work with variables directly in the CSS. No compiling requires.</p>
+
+      <h2>What is CSS Variables?</h2>
+
+      <p>CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document. It is a custom property which starts with -- (double dash) and are accessed using the var() function.</p>
+
+      <h3>Basic Usage:</h3>
+
+      <p data-height="269" data-theme-id="0" data-slug-hash="MmNpbX" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="MmNpbX" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/MmNpbX/">MmNpbX</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+      <h2>Why double dashes (--) ?</h2>
+      So that it will be compatibile with current CSS Parsers which accepts CSS properties only letters and dashes (eg: line-height, -moz-box-sizing). Also you can use CSS variables in the CSS preprocessor without any conflict.
+    </div>
+
+    <!-- /container -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
