@@ -8,6 +8,7 @@
    }
    body, pre{font-size:16px;}
    pre[class*="language-"]{background: #000000;}
+   img{outline: 4px solid #000000;width:100%;box-sizing:border-box;}
 
    /*iframe{width:684px !important;}*/
 

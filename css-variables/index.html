@@ -20,7 +20,7 @@
       <blockquote>CSS variables not to be confused with SASS or LESS variable.</blockquote>
 
       <p>Variable is the one of main reason CSS Preprossor like SASS or LESS exist at all. Look at this simple SASS example,</p>
-      <p data-height="274" data-theme-id="0" data-slug-hash="QgWJzW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="QgWJzW" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgWJzW/">QgWJzW</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <p data-height="274" data-theme-id="0" data-slug-hash="QgWJzW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgWJzW/">CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
       <p>The above code would do nothing in a browser. The browser wouldn't understand the declarations and toss them out. Preprocessors need to compile into CSS to be used. This code would compile to:</p>
 
@@ -67,8 +67,8 @@
 
       <p>Now go ahead and remove the CSS variable <code>"--background: green;"</code> from <code>:root</code> selector and see whats happens.</p>
 
-      <p>You may guess the child element will have background red inheriented from parent element. No, that's not the case here. When there is no variable defined when you use that variable in any CSS property, it will take the initial value by default. Here in this example, background color will be <code>"transparent"</code></p>
-      <p data-height="265" data-theme-id="0" data-slug-hash="BZabPb" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="BZabPb" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZabPb/">BZabPb</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <p>You may guess the child element will have background red inheriented from parent element. No, that's not the case here. When there is no variable defined, when you use that variable in any CSS property, it will take the initial value by default. Here in this example, background color will be <code>"transparent"</code></p>
+      <p data-height="308" data-theme-id="0" data-slug-hash="BZabPb" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="BZabPb" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZabPb/">BZabPb</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
       <h4>Invalid Values</h4>
@@ -83,20 +83,93 @@
         <li><code>display</code> is <code>inline</code></li>
       </ul>
       <p>In this case, background color will be "transparent" </p>
-      <p data-height="265" data-theme-id="0" data-slug-hash="NgWmgN" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="NgWmgN" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/NgWmgN/">NgWmgN</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <p data-height="308" data-theme-id="0" data-slug-hash="NgWmgN" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="NgWmgN" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/NgWmgN/">NgWmgN</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
       <h4>Fallback Value</h4>
       <p>Sometimes there are cases where CSS variables might not be defined. In that case, you can set a fallback value as a second argument in the <code>var()</code> function</p>
       <p><code>background: var(--background, green);</code></p>
-      <p data-height="265" data-theme-id="0" data-slug-hash="wevZOo" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="wevZOo" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/wevZOo/">wevZOo</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <p data-height="300" data-theme-id="0" data-slug-hash="wevZOo" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="wevZOo" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/wevZOo/">wevZOo</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
       <p></p>
       <p>Also you can do this <code>background: var(--color1, var(--color2, var(--color3, #00BCD4)));</code></p>
 
+      <h2>With <code>calc()</code></h2>
+      <p>If you've never worked with it before, the <code>calc()</code> function is a handly little tool that lets you perform calculations to determine CSS values. It’s supported on all modern browsers, and can be combined with CSS Varaible to build up new values. For example, <code>&lt;div&gt;</code> <code>width</code> is calculated dynamically,</p>
+      <p data-height="225" data-theme-id="0" data-slug-hash="GERVQK" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="calc() - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/GERVQK/">calc() - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+      <h2>With <code>@media</code> queries</h2>
+      <p>You could even re-set variables within media queries and have those new values cascade through everywhere using them, something that just isn't possible with preprocessor variables.</p>
+      <p>Check out this example where a media query changes the variables which are used to set up a very simple grid,</p>
+      <p data-height="513" data-theme-id="0" data-slug-hash="BZaXvz" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Using Media Queries- CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZaXvz/">Using Media Queries- CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+      <p>Open the above codepen in a new tab and try resizing the browser.</p>
+      <p class="gify"><img src="img/media-query-resize.gif" /></p>
+
+      <h2>Some Intesting Facts</h2>
+      <h4>Case Sensitive</h4>
+      <p>CSS Variables are case sensitive.</p>
+      <pre><code class="language-css">
+        --color != --COLOR
+      </code></pre>
+      <p>lower case <code>--color</code> is dfferent from uppercase <code>--COLOR</code></p>
+      <p> </p>
+
+      <h4>empty Vs space</h4>
+      <pre><code class="language-css">
+         /* Invalid */
+        --color:;
+
+        /* Valid */
+        --color: ; /* space is assigned */
+      </code></pre>
+      <p> </p>
+
+      <h4>background url()</h4>
+      <pre><code class="language-css">
+        /* Invalid - CSS doesn't support concatenation*/
+        .logo{
+            --logo-url: 'logo';
+            background: url('assets/img/' var(--logo-url) '.png');
+        }
+
+        /* Invalid - CSS bug */
+        .logo{
+            --logo-url: 'assets/img/logo.png';
+            background: url(var(--logo-url));
+        }
+
+        /* Valid */
+        .logo{
+            --logo-url: url('assets/img/logo.png');
+            background: var(--logo-url);
+        }
+      </code></pre>
+      <p> </p>
+
+      <h4>Units</h4>
+      <pre><code class="language-css">
+        /* Invalid */
+        --width: 10;
+        width: var(--width)px;
+
+        /* Valid */
+        --width: 10px;
+        width: var(--width);
+
+        /* Valid */
+        --width: 10;
+        width: calc(1px * var(--width)); /* multiply by 1 unit to convert */
+        width: calc(1em * var(--width));
+      </code></pre>
+      <p> </p>
 
 
+      <h2>Non Supported Browser</h2>
 
+      <h2>Using JavaScript</h2>
 
     </div>
 
