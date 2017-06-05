@@ -108,6 +108,48 @@
       <p>Open the above codepen in a new tab and try resizing the browser.</p>
       <p class="gify"><img src="img/media-query-resize.gif" /></p>
 
+      <h2>Using JavaScript</h2>
+      <p>CSS variables are accesible through JavaScript</p>
+
+      <p>To get variable use <code>getPropertyValue()</code>,</p>
+      <pre><code class="language-css">
+        /* to get varaible from :root */
+        document.documentElement.style.getPropertyValue('--background');
+
+        /* to get variable from element */
+        document.querySelector('.block-3').style.getPropertyValue('--background');
+      </code></pre>
+
+      <p>To update the variable values, use <code>setProperty()</code></p>
+      <pre><code class="language-css">
+        /* to change varaible value from :root */
+        document.documentElement.style.setProperty('--background', '#ff0000');
+
+        /* to change varaible value from element */
+        document.querySelector('.block-3').style.setProperty('--background', '#ff0000');
+      </code></pre>
+
+      <p>You can also use <code>getComputedStyle()</code> to get/set CSS propery values</p>
+      <pre><code class="language-css">
+        // using "getComputedStyle()"
+        var styles = getComputedStyle(document.documentElement);
+        var styles = getComputedStyle(document.querySelector('.block-3'));
+
+        // Get variable
+        var bg_color = styles.getPropertyValue('--background');
+
+        // Set or Update variable
+        styles.setProperty('--background', '#8DC26F');
+      </code></pre>
+
+      <p data-height="609" data-theme-id="0" data-slug-hash="WObrwv" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="WObrwv" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WObrwv/">WObrwv</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+
+
+
       <h2>Some Intesting Facts</h2>
       <h4>Case Sensitive</h4>
       <p>CSS Variables are case sensitive.</p>
@@ -195,9 +237,7 @@
       <p data-height="400" data-theme-id="0" data-slug-hash="awzvLB" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/awzvLB/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-
-
-      <h2>Using JavaScript</h2>
+      <p>Also you can use <code>CSS.supports()</code>, it's a CSS feature detection in JavaScript. Learn more at <a href="https://developer.mozilla.org/en/docs/Web/API/CSS/supports" target="_blank">MDN</a></p>
 
     </div>
 
