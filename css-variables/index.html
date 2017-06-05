@@ -168,6 +168,34 @@
 
 
       <h2>Non Supported Browser</h2>
+      <h4>Browser Support</h4>
+      <p>CSS Variables will not work on all IE browsers and only supports partially on Edge 15. There are some polyfill avaiable for non supported browsers.</p>
+      <p><img src="img/css-variables-supports.png" /></p>
+      <h4>Old School Trick</h4>
+      <p>Have a fallback property if browser does not support CSS Variables then fallback will take over.</p>
+      <pre><code class="language-css">
+        :root{
+          --bg-color: red;
+        }
+
+        div{
+          background: red; /* fallback for non-supported browser */
+          background: var(--bg-color);
+        }
+      </code></pre>
+      <p> </p>
+
+      <h4>CSS <code>@supports</code></h4>
+      <p><code>@supports</code> is a feature detection in CSS. We can use <code>@supports</code> to detect borwser support for CSS Variable</p>
+      <p><strong>Basic Usage</strong></p>
+      <p data-height="329" data-theme-id="0" data-slug-hash="jwEbYj" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/jwEbYj/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+      <p>You can also use <code>not</code> in <code>@support</code> to target only "Not Supported Browsers"</p>
+      <p data-height="400" data-theme-id="0" data-slug-hash="awzvLB" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/awzvLB/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
 
       <h2>Using JavaScript</h2>
 
