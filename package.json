@@ -1,0 +1,39 @@
+{
+  "name": "iamkumaran.github.io",
+  "version": "1.0.0",
+  "description": "My Personal Space",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-filter": "^4.0.0",
+    "gulp-header": "^1.8.8",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.8",
+    "jquery": "^1.11.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamkumaran/iamkumaran.github.io.git"
+  },
+  "keywords": [
+    "html5",
+    "css3",
+    "javacript"
+  ],
+  "author": "Muthu Kumaran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamkumaran/iamkumaran.github.io/issues"
+  },
+  "homepage": "https://github.com/iamkumaran/iamkumaran.github.io#readme"
+}

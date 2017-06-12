@@ -1,0 +1,28 @@
+{
+  "name": "mkumaran",
+  "title": "Muthu Kumaran",
+  "version": "1",
+  "homepage": "http://iamkumaran.github.io/",
+  "author": "Muthu Kumaran",
+  "license": {
+    "type": "MIT",
+    "url": "http://iamkumaran.github.io/"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-filter": "^4.0.0",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
