@@ -13,7 +13,7 @@
         <meta property="og:url"           content="http://iamkumaran.github.io/css-variables/" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="CSS Variables By Muthu Kumaran #css-variables" />
-        <meta property="og:image"         content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variable.png" />
+        <meta property="og:image"         content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variables.png" />
         <meta property="og:description"   content="CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document. They are set using custom property notation (e.g. --main-color: black;) and are accessed using the var() function (e.g. color: var(--main-color) ;) ." />
         <meta property="og:site_name"     content="iamkumaran github" />
         <!--<meta property="fb:admins"    content="Facebook numeric ID" />-->
@@ -26,12 +26,12 @@
         <meta name="twitter:description" content="CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document. They are set using custom property notation (e.g. --main-color: black;) and are accessed using the var() function (e.g. color: var(--main-color) ;) .">
         <meta name="twitter:creator" content="@author_handle">
         <!-- Twitter Summary card images must be at least 120x120px -->
-        <meta name="twitter:image" content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variable.png">
+        <meta name="twitter:image" content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variables.png">
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="CSS Variables | Muthu Kumaran">
         <meta itemprop="description" content="CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document. They are set using custom property notation (e.g. --main-color: black;) and are accessed using the var() function (e.g. color: var(--main-color) ;) .">
-        <meta itemprop="image" content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variable.png">
+        <meta itemprop="image" content="http://iamkumaran.github.io/img/portfolio/social-icons/css-variables.png">
 
 
 
@@ -92,7 +92,7 @@
         <div class="container" id="maincontent" tabindex="-1">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="../img/portfolio/css-variable.png" alt="">
+                    <img class="img-responsive" src="../img/portfolio/css-variables.png" alt="">
                     <div class="intro-text">
                         <h1 class="name"></h1>
                         <hr class="star-light">
@@ -122,7 +122,7 @@
 
       <p class="lead">Variable is the one of main reason CSS Preprocessor like SASS or LESS exist at all. Look at this simple SCSS example,</p>
       <p data-height="274" data-theme-id="0" data-slug-hash="QgWJzW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgWJzW/">CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
       <p class="lead">The above code would do nothing in a browser. The browser wouldn't understand the declarations and toss them out. Preprocessors need to compile into CSS to be used. This code would compile to:</p>
 
       <pre><code class="language-css">
@@ -133,7 +133,7 @@
       </code></pre>
 
       <p data-height="269" data-theme-id="0" data-slug-hash="rwNQqW" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="rwNQqW" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/rwNQqW/">rwNQqW</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <p class="lead">This is now valid CSS. The variable was part of the preprocessor language, not CSS itself. Once the code compiles, the variables are gone.</p>
       <p class="lead">Now CSS started supporting CSS variables and allows you to work with variables directly in the CSS. No compiling requires.</p>
@@ -143,7 +143,7 @@
 
       <h4>Basic Usage:</h5>
       <p data-height="269" data-theme-id="0" data-slug-hash="MmNpbX" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="MmNpbX" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/MmNpbX/">MmNpbX</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
 
       <h4>Why double dashes (<code>--</code>) ?</h5>
@@ -152,25 +152,25 @@
       <h2>The Cascade</h2>
       <p class="lead">CSS variables follows the same cascade rule. You can define this same property at different levels to reset value of the variable. For example,</p>
       <p data-height="385" data-theme-id="0" data-slug-hash="JJjzZy" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="JJjzZy" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/JJjzZy/">JJjzZy</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
       <p class="lead">You can see there is only one <code>'color'</code> property in <code>*</code> selector. <code>&lt;h3&gt;</code> and <code>&lt;div&gt;</code> colors updated by changing only the variable.</p>
 
       <h4>Inline style</h5>
       <p class="lead">CSS variable can also be defined in element's inline styles. Suppose, you have a component where you can control the size,</p>
       <p data-height="265" data-theme-id="0" data-slug-hash="zzYgqE" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Inline Style - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/zzYgqE/">Inline Style - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <h2><code>var()</code> function</h2>
       <p class="lead">Now you know the use of <code>var()</code> function. There is more about this function to know.</br>
       Look at this code below, there is a red <code>div</code> and a green child <code>div</code>. Only one CSS variable used for the child green <code>div</code>.</p>
       <p data-height="308" data-theme-id="0" data-slug-hash="awbMqJ" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="awbMqJ" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/awbMqJ/">awbMqJ</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <p class="lead">Now go ahead and remove the CSS variable <code>"--background: green;"</code> from <code>:root</code> selector and see what happens.</p>
 
       <p class="lead">You may guess the child element will have background red inherited from parent element. No, that's not the case here. When there is no variable defined, when you use that variable in any CSS property, it will take the initial value by default. Here in this example, background color will be <code>"transparent"</code></p>
       <p data-height="308" data-theme-id="0" data-slug-hash="BZabPb" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="BZabPb" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZabPb/">BZabPb</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <h4>Invalid Values</h5>
       <p class="lead">If CSS Variable has a invalid values like <code>--background: blah blah blah;</code> or typos like <code>--background: yelow; /* a accidental typos for yellow */</code> then again CSS property will take the initial value by default like, </p>
@@ -185,26 +185,26 @@
       </ul>
       <p class="lead">In this case, background color will be "transparent" </p>
       <p data-height="308" data-theme-id="0" data-slug-hash="NgWmgN" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="NgWmgN" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/NgWmgN/">NgWmgN</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <h4>Fallback Value</h5>
       <p class="lead">Sometimes there are cases where CSS variables might not be defined. In that case, you can set a fallback value as a second argument in the <code>var()</code> function</p>
       <p class="lead"><code>background: var(--background, green);</code></p>
       <p data-height="300" data-theme-id="0" data-slug-hash="wevZOo" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="wevZOo" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/wevZOo/">wevZOo</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
       <p class="lead"></p>
       <p class="lead">Also you can do this <code>background: var(--color1, var(--color2, var(--color3, #00BCD4)));</code></p>
 
       <h2>With <code>calc()</code></h2>
       <p class="lead">If you've never worked with it before, the <code>calc()</code> function is a handly little tool that lets you perform calculations to determine CSS values. It’s supported on all modern browsers, and can be combined with CSS Variable to build up new values. For example, <code>&lt;div&gt;</code> <code>width</code> is calculated dynamically,</p>
       <p data-height="225" data-theme-id="0" data-slug-hash="GERVQK" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="calc() - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/GERVQK/">calc() - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <h2>With <code>@media</code> queries</h2>
       <p class="lead">You could even re-set variables within media queries and have those new values cascade through everywhere using them, something that just isn't possible with preprocessor variables.</p>
       <p class="lead">Check out this example where a media query changes the variables which are used to set up a very simple grid,</p>
       <p data-height="513" data-theme-id="0" data-slug-hash="BZaXvz" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Using Media Queries- CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZaXvz/">Using Media Queries- CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <p class="lead">Open the above codepen in a new tab and try resizing the browser.</p>
       <p class="gify"><img src="img/media-query-resize.gif" /></p>
@@ -245,7 +245,7 @@
 
       <h4>Demo:</h4>
       <p data-height="609" data-theme-id="0" data-slug-hash="WObrwv" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="WObrwv" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WObrwv/">WObrwv</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
 
 
@@ -333,11 +333,11 @@
       <p class="lead"><code>@supports</code> is a feature detection in CSS. We can use <code>@supports</code> to detect browser support for CSS Variable.</p>
       <p class="lead"><strong>Basic Usage</strong></p>
       <p data-height="329" data-theme-id="0" data-slug-hash="jwEbYj" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/jwEbYj/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <p class="lead">You can also use <code>not</code> in <code>@support</code> to target only "Not Supported Browsers"</p>
       <p data-height="400" data-theme-id="0" data-slug-hash="awzvLB" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/awzvLB/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 
       <p class="lead">Also you can use <code>CSS.supports()</code>, it's a CSS feature detection in JavaScript. Learn more at <a href="https://developer.mozilla.org/en/docs/Web/API/CSS/supports" target="_blank">MDN</a></p>
 
@@ -501,6 +501,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
   </body>
 </html>
