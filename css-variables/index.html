@@ -148,12 +148,12 @@
       <h2>What is CSS Variables?</h2>
       <p class="lead">CSS Variables are entities defined by CSS authors which contain specific values to be reused throughout a document. It is a custom property which starts with <code>--</code> (double dash) and are accessed using the <code>var()</code> function.</p>
 
-      <h4>Basic Usage:</h5>
+      <h4>Basic Usage:</h4>
       <p data-height="269" data-theme-id="0" data-slug-hash="MmNpbX" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="MmNpbX" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/MmNpbX/">MmNpbX</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 
 
-      <h4>Why double dashes (<code>--</code>) ?</h5>
+      <h4>Why double dashes (<code>--</code>) ?</h4>
       <p class="lead">So that it will be compatible with current CSS Parsers which accepts CSS properties only letters and dashes (eg: <code>line-height</code>, <code>-moz-box-sizing</code>). Also you can use CSS variables in the CSS preprocessor without any conflict.</p>
 
       <h2>The Cascade</h2>
@@ -162,7 +162,7 @@
 
       <p class="lead">You can see there is only one <code>'color'</code> property in <code>*</code> selector. <code>&lt;h3&gt;</code> and <code>&lt;div&gt;</code> colors updated by changing only the variable.</p>
 
-      <h4>Inline style</h5>
+      <h4>Inline style</h4>
       <p class="lead">CSS variable can also be defined in element's inline styles. Suppose, you have a component where you can control the size,</p>
       <p data-height="265" data-theme-id="0" data-slug-hash="zzYgqE" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Inline Style - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/zzYgqE/">Inline Style - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
@@ -179,7 +179,7 @@
       <p data-height="308" data-theme-id="0" data-slug-hash="BZabPb" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="BZabPb" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/BZabPb/">BZabPb</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 
-      <h4>Invalid Values</h5>
+      <h4>Invalid Values</h4>
       <p class="lead">If CSS Variable has a invalid values like <code>--background: blah blah blah;</code> or typos like <code>--background: yelow; /* a accidental typos for yellow */</code> then again CSS property will take the initial value by default like, </p>
 
       <!-- http://nimbupani.com/safe-css-defaults.html -->
@@ -194,7 +194,7 @@
       <p data-height="308" data-theme-id="0" data-slug-hash="NgWmgN" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="NgWmgN" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/NgWmgN/">NgWmgN</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 
-      <h4>Fallback Value</h5>
+      <h4>Fallback Value</h4>
       <p class="lead">Sometimes there are cases where CSS variables might not be defined. In that case, you can set a fallback value as a second argument in the <code>var()</code> function</p>
       <p class="lead"><code>background: var(--background, green);</code></p>
       <p data-height="300" data-theme-id="0" data-slug-hash="wevZOo" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="wevZOo" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/wevZOo/">wevZOo</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -260,7 +260,7 @@
 
 
       <h2>Some Interesting Facts</h2>
-      <h4>Case Sensitive</h5>
+      <h4>Case Sensitive</h4>
       <p class="lead">CSS Variables are case sensitive.</p>
       <pre><code class="language-css">
         --color != --COLOR
@@ -268,7 +268,7 @@
       <p class="lead">lower case <code>--color</code> is different from uppercase <code>--COLOR</code></p>
       <p class="lead"> </p>
 
-      <h4>empty Vs space</h5>
+      <h4>empty Vs space</h4>
       <pre><code class="language-css">
          /* Invalid */
         --color:;
@@ -278,7 +278,7 @@
       </code></pre>
       <p class="lead"> </p>
 
-      <h4>background url()</h5>
+      <h4>background url()</h4>
       <pre><code class="language-css">
         /* Invalid - CSS doesn't support concatenation*/
         .logo{
@@ -300,7 +300,7 @@
       </code></pre>
       <p class="lead"> </p>
 
-      <h4>Units</h5>
+      <h4>Units</h4>
       <pre><code class="language-css">
         /* Invalid */
         --width: 10;
@@ -319,10 +319,10 @@
 
 
       <h2>Non Supported Browser</h2>
-      <h4>Browser Support</h5>
+      <h4>Browser Support</h4>
       <p class="lead">CSS Variables will not work on all IE browsers and only supports partially on Edge 15. There are some polyfill available for non supported browsers.</p>
       <p class="lead"><img src="img/css-variables-supports.png" /></p>
-      <h4>Old School Trick</h5>
+      <h4>Old School Trick</h4>
       <p class="lead">Have a fallback property if browser does not support CSS Variables then fallback will take over.</p>
       <pre><code class="language-css">
         :root{
@@ -336,7 +336,7 @@
       </code></pre>
       <p class="lead"> </p>
 
-      <h4>CSS <code>@supports</code></h5>
+      <h4>CSS <code>@supports</code></h4>
       <p class="lead"><code>@supports</code> is a feature detection in CSS. We can use <code>@supports</code> to detect browser support for CSS Variable.</p>
       <p class="lead"><strong>Basic Usage</strong></p>
       <p data-height="329" data-theme-id="0" data-slug-hash="jwEbYj" data-default-tab="css,result" data-user="mkumaran" data-embed-version="2" data-pen-title="@supports - CSS Variables" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/jwEbYj/">@supports - CSS Variables</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>

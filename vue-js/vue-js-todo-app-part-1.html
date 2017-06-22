@@ -1,0 +1,718 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Vue.Js - Simple Todo App - Part 1 | Muthu Kumaran</title>
+        <meta name="description" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js">
+        <meta name="author" content="Muthu Kumaran">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="http://iamkumaran.github.io/img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="http://iamkumaran.github.io/img/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="http://iamkumaran.github.io/img/favicons/favicon-16x16.png">
+        <link rel="manifest" href="http://iamkumaran.github.io/img/favicons/manifest.json">
+        <link rel="mask-icon" href="http://iamkumaran.github.io/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+
+
+        <!-- Open Graph data -->
+        <meta property="og:url"           content="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-1.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Vue.Js - Simple Todo App - Part 1 By Muthu Kumaran #vue-js" />
+        <meta property="og:image"         content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-1.png" />
+        <meta property="og:description"   content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js" />
+        <meta property="og:site_name"     content="iamkumaran github" />
+        <!--<meta property="fb:admins"    content="Facebook numeric ID" />-->
+
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js.">
+        <meta name="twitter:site" content="@iamkumaran">
+        <meta name="twitter:title" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js">
+        <meta name="twitter:creator" content="@Muthu Kumaran">
+        <!-- Twitter Summary card images must be at least 120x120px -->
+        <meta name="twitter:image" content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-1.png">
+
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="Vue.Js - Simple Todo App - Part 1 | Muthu Kumaran">
+        <meta itemprop="description" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js">
+        <meta itemprop="image" content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-1.png">
+
+
+
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+
+
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="/css/styles.min.css?v=1" rel="stylesheet">
+        <link rel="stylesheet" href="/css-variables/css/main.css?v=1">
+
+        <!-- Custom Fonts -->
+        <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    </head>
+  <body id="page-top" class="index">
+    <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Muthu Kumaran</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#my-work">My Work</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container" id="maincontent" tabindex="-1">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="../img/portfolio/vue-js-part-1.png" alt="">
+                    <div class="intro-text">
+                        <h1 class="name"></h1>
+                        <hr class="star-light">
+                        <span class="skills">By Muthu Kumaran - June 20, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+  <section id="articles">
+    <div class="container">
+
+      <div class="fb-like"
+          data-href="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-1.html"
+          data-layout="standard"
+          data-action="like"
+          data-show-faces="true">
+        </div>
+
+      <h1>Vue.js - Simple Todo App - Part 1</h1>
+      <blockquote>PART 1: No Components, No State Management, just a simple Todo App.</blockquote>
+
+      <p class="lead">If you are new to Vue.js, you can get started from <a href="https://vuejs.org/v2/guide/" target="_blank">official Vue.js site</a>. If you know JavaScript, it wouldn't take much time to get started.</p>
+
+      <p class="bg-info">Note that Vue.js only supports ES5-compliant browsers (IE8 and below are not supported).</p>
+
+      <h4>Hello World</h4>
+      <p class="lead">First lets just build a simple hello world using Vue.js. Here's the step by step</p>
+
+      <ol>
+        <li>
+            <p class="lead">Create an <code>index.html</code> and include Vue.js file </p>
+            <pre><code class="language-markup">&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;</code></pre>
+            <p class="lead">and the markup</p>
+<pre><code class="language-markup">
+  &lt;div id="app"&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;/div&gt;
+</code></pre>
+        </li>
+
+        <li>
+          <p class="lead">Create a Vue instance with <code>Vue</code> constructor to print <code>Hello World!</code> in the page,</p>
+          <pre><code class="language-javascript">
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello World!'
+  }
+})
+          </code></pre>
+
+          <p class="lead"><code>el</code> - provide the DOM element to mount. Accepts CSS selector or HTMLElement. Let's mount by providing <code>div</code> ID <code>#app</code>.</p>
+          <p class="lead"><code>data</code> - The data object for the Vue instance. This should be an object. Vue will convert this property into <code>reactive</code> property. </p>
+          <p class="bg-info"><b<Note:</b> In components, this should be an function not object. Don't worry about this now.</p>
+
+          <p class="lead">To know more about the syntax, visit Vue.js docs <a href="https://vuejs.org/v2/guide/instance.html" target="_blank">The Vue Instance</a> and <a href="https://vuejs.org/v2/api" target="_blank">API reference</a></p>
+        </li>
+        <li>
+          <p class="lead">Now open the <code>index.html</code> in browser and you should see <code>Hello World!</code> message.</p>
+          <p data-height="209" data-theme-id="0" data-slug-hash="eRWovz" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Hello World - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/eRWovz/">Hello World - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          </li>
+      </ol>
+
+      <p class="lead">That's all about <code>Hello World!</code> App. Now lets build a simple <code>Todo</code> app.</p>
+
+      <h2>Simple Todo App</h2>
+      <p ><img src="/img/vue-js/todo-app-final.png" style="width:30%;" class="pull-right"/></p>
+      <p class="lead">In Todo App, we are going to implement the following</p>
+      <ul class="lead">
+        <li class="page-scroll"><a href="#add-todo">Add Todo</a></li>
+        <li class="page-scroll"><a href="#list-all-todo-items">List all Todo Items</a></li>
+        <li class="page-scroll"><a href="#update-todo">Update Todo</a></li>
+        <li class="page-scroll"><a href="#mark-as-complete">Mark as complete</a></li>
+        <li class="page-scroll"><a href="#delete-todo">Delete Todo</a></li>
+      </ul>
+
+      <p class="lead">Note: In this demo, I won't be using Components or State Management. I'll cover those in another article. This is a simple Todo App with Vue.js</p>
+      <br/><br/>
+
+      <h3 id="add-todo">Add Todo</h3>
+      <p class="lead">Create a simple HTML and Vue instance</p>
+      <pre><code class="language-markup">
+&lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;todoApp&quot;&gt;
+  &lt;h3&gt; {{message}} &lt;/h3&gt;
+  &lt;form name=&quot;todo-form&quot; method=&quot;post&quot; action=&quot;&quot;&gt;
+    &lt;input name=&quot;add-todo&quot; type=&quot;text&quot; /&gt;
+    &lt;button type=&quot;submit&quot;&gt;Add&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+    </code></pre>
+
+    <pre><code class="language-javascript">
+var todoApp = new Vue({
+  el: '#todoApp',
+  data: {
+    message: 'Welcome to Todo App',
+  }
+})
+    </code></pre>
+
+
+      <p data-height="265" data-theme-id="0" data-slug-hash="weeBgO" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Add Form - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/weeBgO/">Add Form - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <p class="lead"><b>v-model</b></p>
+      <p class="lead">Use <code>v-model</code> to create a two way data binding for the input textbox. Whenever we type into the textbox <code>v-model</code> will automatically updata Vue <code>data</code> object.</p>
+
+      <p class="lead">Now update the <code>&lt;input&gt;</code> textbox with the <code>v-model</code></p>
+      <pre><code class="language-markup">
+&lt;input name="add-todo" type="text" v-model="addTodoInput"/&gt;
+      </code></pre>
+
+      <p class="lead">Also we need to add the <code>v-model</code> name to Vue <code>data</code> object</p>
+      <pre><code class="language-javascript">
+var todoApp = new Vue({
+  el: '#todoApp',
+  data: {
+    message: 'Welcome to Todo App',
+    addTodoInput: '' // &lt;--- add here
+  }
+})
+      </code></pre>
+
+      <p class="lead">For testing out two way data binding, lets put <code>{{addTodoInput}}</code> anywhere in the markup. Whenever I type, input value will print in the browser like a live update.</p>
+      <p class="lead">Go ahead and type something in the below codepen,</p>
+      <p data-height="264" data-theme-id="0" data-slug-hash="qjjdmL" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Add Form - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/qjjdmL/">Add Form - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <p class="lead">To learn more about inputs and forms, visit Vue docs <a href="https://vuejs.org/v2/guide/forms.html" target="_blank">Form Input Bindings</a></p>
+
+      <h4>Event Handling</h4>
+      <p class="lead">Event Handling was made very easy in <code>Vue.js</code>. Use <code>v-on</code> directive to bind events. </p>
+      <pre><code class="language-javascript">
+        //For eg,
+
+        // &lt;!-- simple click event --&gt;
+        &lt;button v-on:click=&quot;someMethod&quot;&gt; &lt;/button&gt;
+
+        // &lt;!-- shorthand for v-on: --&gt;
+        &lt;button @click=&quot;someMethod&quot;&gt; &lt;/button&gt;
+
+        &lt;form v-on:submit=&quot;submitForm($event)&quot;&gt; &lt;/form&gt; //$event is a special variable similar to `event` in JavaScript
+
+        // &lt;!-- the submit event will no longer reload the page --&gt;
+        &lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt; //`.prevent` is a event modifier which is same as `event.preventDefault()` and `.stop` for event.stopPropagation()
+
+        // &lt;!-- modifiers can be chained --&gt;
+        &lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;
+
+        // &lt;!-- the click event will be triggered at most once --&gt;
+        &lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;
+
+        // &lt;!-- event will triggered on hitting &lt;enter&gt; key --&gt;
+        &lt;input v-on:keyup.enter=&quot;submit&quot;&gt;
+
+        // &lt;!-- same as above and triggered when the keyCode is 13 --&gt;
+        &lt;input v-on:keyup.13=&quot;submit&quot;&gt;
+
+        // &lt;!-- Alt + C --&gt;
+        &lt;input v-on:keyup.alt.67=&quot;clear&quot;&gt;
+      </code></pre>
+      </p>
+      <p class="lead">There are more about events and event modifiers. See Vue docs <a href="https://vuejs.org/v2/guide/events.html" target="_target">Event Handling</a></p>
+
+      <h4>Form Submit</h4>
+      <p class="lead">Back to Todo app, lets add <code>onsubmit</code> event to the <code>&lt;form&gt;</code> tag and we will add <code>.prevent</code> which does <code>event.preventDefault()</code></p>
+
+      <pre><code class="language-javascript">
+        &lt;form name="todo-form" method="post" action="" v-on:submit.prevent="addTask"&gt;
+      </code></pre>
+
+      <p class="lead"><code>addTask</code> is method to create new todo's. Lets create this method in <code>Vue</code> instance,</p>
+      <p class="lead"><code>lists</code> is a Vue <code>data</code> object, to store all Todo's items. Lets add that one to <code>data</code> object.</p>
+      <p class="lead">
+        <pre><code class="language-javascript">
+var todoApp = new Vue({
+  el: '#todoApp',
+  data: {
+    message: 'Welcome to Todo App',
+    addTodoInput: '',
+    lists: [], // this will hold all the created todo task items
+  },
+  methods:{
+    addTask: function(){
+      //form submit action goes here
+    }
+  }
+})
+        </code></pre>
+      </p>
+
+      <p class="lead">This is my <code>lists</code> structure,</p>
+      <pre><code class="language-javascript">
+      [
+        {
+          id: 1,              // Unique identifier
+          title: 'Go Home',   // Todo's title
+          isComplete: true    // Default: false. Mark as complete with a strike-through. We will see this later
+        },
+        {
+          id: 2,
+          title: 'Pack Bag',
+          isComplete: false
+        }
+      ]
+      </code></pre>
+
+      <p class="lead">Now lets make the form submit using <code>addTask()</code> and add the new item to the <code>lists</code></p>
+
+      <p class="lead">I've updated the <code>addTask()</code> method to update the <code>lists</code> reactive property</p>
+      <pre><code class="language-javascript">
+addTask: function(){
+
+  this.lists.push({
+    id: this.lists.length+1,
+    title: this.addTodoInput,
+    isComplete: false
+  });
+
+  this.addTodoInput = ''; //clear the input after successful submission
+}
+      </code></pre>
+
+      <p class="lead">Check here in the codepen. You should able to add new Todo's,</p>
+      <p data-height="219" data-theme-id="0" data-slug-hash="WOOpPv" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Form Submit - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WOOpPv/">Form Submit - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <p class="lead">I know there is nothing happens after hitting the "Add" button. But in the backgorund <code>lists</code> is getting updated with new added todo items. Lets check in the <code>codepen console</code> (Make sure you are inspecting on codepen result/white area)</p>
+      <p class="lead"><img src="/img/vue-js/todo-app-console-log.png" style="width:40%;"/></p>
+      <p class="lead">You can see items are getting updated in the <code>items</code>. Next step is to list all Todo Items in the page.</p>
+
+      <h3 id="list-all-todo-items">List all Todo Items</h3>
+      <p class="lead">We can use the <code>v-for</code> directive to render a list of items based on an array (you can iterate objects). The <code>v-for</code> directive requires a special syntax in the form of <code>list in lists</code>, where <code>list</code> is the source data array and item is an alias for the array element being iterated on:</p>
+
+      <pre><code class="language-markup">
+      &lt;li v-for=&quot;list in lists&quot; :key=&quot;list.id&quot;&gt;
+      </code></pre>
+
+      <p class="lead"><code>:key</code> - It is recommended to provide a key with <code>v-for</code> if you are updating the lists. <code>key</code> is not needed if it's a simple loop.</p>
+
+      <p class="lead">Lets update the markup to list all todo items,</p>
+
+      <pre><code class="language-markup">
+        &lt;div class=&quot;todo-lists&quot; v-if=&quot;lists.length&quot;&gt;
+          &lt;h3&gt;My Todo Tasks&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li v-for=&quot;list in lists&quot; :key=&quot;list.id&quot;&gt;
+              &lt;span class=&quot;title&quot; v-bind:class=&quot;{completed: list.isComplete}&quot;&gt;{{list.title}}&lt;/span&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      </code></pre>
+      <p class="lead">Go ahead and see it yourself,</p>
+      <p data-height="265" data-theme-id="0" data-slug-hash="owwGEO" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="List all items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/owwGEO/">List all items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <p class="lead"> <img class="pull-right" src="/img/vue-js/todo-list-items.png" style="width:30%;margin:6px 3px 0px;"/> This works cool but we have a issue here. There is no vaildation when adding new todo items even <code>empty</code> items are appearing in the list. So lets a simple validation and make sure <code>empty</code> are not getting submitted.</p>
+
+      <p class="lead">When we hit the <code>Add</code> button without typing anything into textbox then we will show a red border textbox which will indicate textbox must be filled. I'm adding a new property called <code>hasError</code> in Vue data object to track textbox is filled or not</p>
+      <pre><code class="language-javascript">
+  data: {
+    message: 'Welcome to Todo App',
+    addTodoInput: '',
+    lists: [],
+    hasError: false  // <-- to handle errors
+  },
+      </code></pre>
+
+      <p class="lead">Update the <code>addTask</code> method to update <code>hasError</code> property, </p>
+      <pre><code class="language-javascript">
+  addTask: function(){
+
+    if(!this.addTodoInput){ // &lt;--- If no value then we are setting error to `true`
+      this.hasError = true;
+      return;               // &lt;--- stops here
+    }
+
+    this.hasError = false; // &lt;--- If textbox is filled then setting error to `false`
+
+    this.lists.push({
+      id:this.lists.length+1,
+      title: this.addTodoInput,
+      isComplete: false
+    });
+
+    this.addTodoInput = '';
+  }
+</code></pre>
+
+      <p class="lead">Lets update the textbox to show red border when we simply hitting the button. We will use <code>v-bind:class</code> to attach <code>error</code> class,</p>
+<pre><code class="language-markup">
+&lt;input name="add-todo" type="text" v-model="addTodoInput" v-bind:class="{error: hasError}"/&gt;
+
+</code></pre>
+
+      <p class="lead">Now check out this codepen, you should able to see the simple validation,</p>
+      <p data-height="265" data-theme-id="0" data-slug-hash="MooVvZ" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="List all items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/MooVvZ/">List all items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <h3 id="update-todo">Update Todo</h3>
+      <p class="lead">To update the existing create Todo item, lets update the markup</p>
+      <pre><code class="language-markup">
+        // Updating this &lt;span&gt; tag
+        &lt;span class="title" v-bind:class="{completed: list.isComplete}"&gt;{{list.title}}&lt;/span&gt;
+
+        to
+
+        &lt;span class="title"
+          contenteditable="true"
+          v-on:keydown.enter="updateTask($event, list)"
+          v-on:blur="updateTask($event, list)"
+          v-bind:class="{completed: list.isComplete}"&gt; {{list.title}} &lt;/span&gt;
+      </code></pre>
+
+      <p class="lead">I'm using <code>contenteditable="true"</code> to edit the field which was easier than putting a textbox. I'm trying to mimic <code>&lt;span&gt;</code> tag as <code>textbox</code> which I able to do it with the help of CSS and JavaScript.</p>
+
+      <p class="lead"><code>v-on:keydown.enter</code> - This event will trigger when hitting the <code>ENTER</code> key and execute <code>updateTask()</code> method.</p>
+      <p class="lead"><code>v-on:blur</code> - This event will trigger during blur and execute <code>updateTask()</code> method.</p>
+
+      <p class="lead">Lets add <code>updateTask</code> to Vue methods and update the edited list.</p>
+      <pre><code class="language-javascript">
+        methods:{
+          ...
+          ...
+          updateTask: function(e, list){
+            e.preventDefault();
+            list.title = e.target.innerText;
+            e.target.blur();
+          }
+        }
+      </code></pre>
+
+      <p class="lead">Here's the demo in codepen and now try editing the item from the Todo list,</p>
+      <p data-height="386" data-theme-id="0" data-slug-hash="mwwLrL" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Update items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/mwwLrL/">Update items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <h3 id="mark-as-complete">Mark as Complete</h3>
+      <p class="lead">This is another feature I like to add to Todo app. If the task is complete lets strike out the completed task.</p>
+      <p class="lead">Lets add a <code>&lt;checkbox&gt;</code> to each Todo item task. When checking the <code>&lt;checkbox&gt;</code> will strike-out the task.</p>
+      <pre><code class="language-markup">
+
+        &lt;li v-for=&quot;list in lists&quot; :key=&quot;list.id&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; v-on:change=&quot;completeTask(list)&quot; v-bind:checked=&quot;list.isComplete&quot;/&gt;
+        ...
+        &lt;/li&gt;
+
+      </code></pre>
+
+      <p class="lead">We have attached <code>completeTask</code> method to <code>change</code> event which will update <code>list.isComplete</code> to true/false.</p>
+      <p class="lead"><code>v-bind:checked</code> - will check or uncheck checkbox based on the condition of <code>list.isComplete</code></p>
+
+      <p class="lead">Adding <code>completeTask</code> to Vue methods,</p>
+      <pre><code class="language-javascript">
+
+        methods:{
+          ...
+          ...
+          completeTask: function(list){
+            list.isComplete = !list.isComplete;
+          }
+        }
+
+      </code></pre>
+
+      <p class="lead">Here's the demo in codepen and now try checking the checkbox in Todo list,</p>
+      <p data-height="365" data-theme-id="0" data-slug-hash="WOOygp" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Mark as Complete - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WOOygp/">Mark as Complete - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+      <p class="lead">Demo looks great but now I want to move completed items below and active items to top. So that it's easy to manage the Todo App Task list. To bring the active items top, lets sort the <code>lists</code> by <code>isComplete: false</code></p>
+
+      <p class="lead">Now we need to filter or sort the data without mutating the <code>lists</code> data object. Lests create a another method to filter the data but this method should go inside <code>computed</code> property.</p>
+
+      <p class="lead"><b>Why Computed property instead of Methods?</b></p>
+      <p class="lead">It's better read it from Vue docs, <a href="https://vuejs.org/v2/guide/computed.html" target="_blank">Computed Properties</a></p>
+      <p class="lead">Main reason to go with <code>computed</code> property is <b>"computed properties are cached based on their dependencies"</b>. We can still define the same method to <code>Methods</code> property but when template rendered each time, the method will execute each time. A <code>computed</code> property will only re-evaluate when some of its dependencies have changed. As long as <coce>lists</code> data object is not changed, computed property will immediately return the previously computed result without having to run the function again.</p>
+
+      <p class="lead">Lets update the JS and add <code>computed</code> property</p>
+      <pre><code class="language-javascript">
+
+        data: {
+          ...
+        },
+        computed: {
+          filterLists: function(){
+            return _.orderBy(this.lists, ['isComplete', false])
+          }
+        },
+        methods:{
+          ...
+        }
+        </code></pre>
+
+        <p class="lead"><code>filterLists</code> methods will return sorted list with active at top and completed items at bottom.</p>
+        <p class="lead">I'm using <a href="https://lodash.com/" target="_blank"><code>lodash</code></a> library to perform array manipulation. <code>_.orderBy</code> will return sorted lists</p>
+
+        <p class="lead">Make sure you include <code>lodash</code> library before testing the code,</p>
+        <pre><code class="language-markup">
+          &lt;script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"&gt;&lt;/script&gt;
+        </code></pre>
+
+        <p class="lead">To make this work, we need to make one more change in the markup. We need to change <code>v-for</code> loop which uses <code>lists</code> to iterate</p>
+
+        <pre><code class="language-markup">
+          //Change
+          &lt;li v-for="list in lists" :key="list.id"&gt;
+
+            to
+
+          //replace `lists` with `filterLists`
+          &lt;li v-for="list in filterLists" :key="list.id"&gt;
+
+        </code></pre>
+
+        <p class="lead">Here's the codepen demo to test it out. Try adding more Todo items and check the checkbox to see the magic,</p>
+        <p data-height="407" data-theme-id="0" data-slug-hash="KqqeLZ" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Mark as Complete with sort - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/KqqeLZ/">Mark as Complete with sort - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+        <h3 id="delete-todo">Delete Todo</h3>
+        <p class="lead">Next is, we are going to delete a Todo item. Lets add the below delete icon in the markup</p>
+
+        <p class="lead"><code>&lt;span class="remove" v-on:click="removeTask(list)"&gt;x&lt;/span&gt;</code></p>
+        <p class="lead"><code>removeTask</code> - method will remove todo item from <code>lists</code> data object.</p>
+        <pre><code class="language-javascript">
+          methods:{
+            ...
+            ...
+            removeTask: function(list){
+              var index = _.findIndex(this.lists, list);
+              this.lists.splice(index, 1);
+            }
+          }
+        </code></pre>
+
+        <p class="lead">Checkout the codepen for deleting a Todo item,</p>
+        <p data-height="405" data-theme-id="0" data-slug-hash="QggZRM" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Remove Item - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QggZRM/">Remove Item - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+
+        <h2>The Final Demo</h2>
+        <p class="lead">Finally we have a built a simple Todo App using <code>Vue.js</code>. Here's the complete HTML, CSS and JavaScript to play around.</p>
+
+        <p class="lead"><b>HTML/CSS</b></p>
+        <p data-height="489" data-theme-id="0" data-slug-hash="QgKpNq" data-default-tab="html,css" data-user="mkumaran" data-embed-version="2" data-pen-title="Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgKpNq/">Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+        <p class="lead"><b>JavaScript</b></p>
+        <p data-height="489" data-theme-id="0" data-slug-hash="QgKpNq" data-default-tab="js" data-user="mkumaran" data-embed-version="2" data-pen-title="Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgKpNq/">Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+        <p class="lead"><b>Final Demo</b></p>
+        <p data-height="489" data-theme-id="0" data-slug-hash="QgKpNq" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgKpNq/">Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+        <h2>What's Next?</h2>
+        <p class="lead">In next article, I'll show you how to use <code>Components</code> and <code>State Management</code> with the same Todo App. Once I complete the write-up, I'll share the link here.</p>
+        <p class="lead">If you can't wait, then please take a look at my codepen</p>
+        <p class="lead"><b>Todo App with Components</b> - <a href="https://codepen.io/mkumaran/pen/wegvoO" target="_blank">https://codepen.io/mkumaran/pen/wegvoO</a></p>
+        <p class="lead"><b>Todo App Using Vuex (State Management)</b> - <a href="https://codepen.io/mkumaran/pen/vZgara" target="_blank">https://codepen.io/mkumaran/pen/vZgara</a></p>
+
+
+
+
+
+      <br/><br/>
+
+
+      <div class="text-center">
+        <p class="lead">If you like this, please share</p>
+        <div class="addthis_inline_share_toolbox"></div>
+      </div>
+      <br/><br/>
+      <div class="fb-like"
+        data-href="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-1.html"
+        data-layout="standard"
+        data-action="like"
+        data-show-faces="true">
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <section id="comment-box">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Comments</h2>
+              <hr class="star-primary">
+          </div>
+      </div>
+      <p class="lead">Thank you for visiting my page. Please shares your views and suggestion in the comment box below.</p>
+      <div id="disqus_thread"></div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="text-center">
+      <div class="footer-above">
+          <div class="container">
+              <div class="row">
+                  <!--<div class="footer-col col-md-4">
+                      <h3>Location</h3>
+                      <p class="lead">XXXXXXXX
+                          <br>XXX, XXXX XXXXX</p>
+                  </div>-->
+                  <div class="footer-col col-md-4" style="text-align:center;float:none;width:100%;">
+                      <h3>Socially</h3>
+                      <ul class="list-inline">
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!--
+                  <div class="footer-col col-md-4">
+                      <h3>About Freelancer</h3>
+                      <p class="lead">Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                  </div>-->
+              </div>
+          </div>
+      </div>
+      <div class="footer-below">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      Copyright &copy; MUTHU KUMARAN
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- /container -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/js/script.min.js"></script>
+    <script src="/css-variables/js/main.js"></script>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593e5e6045fcf52f"></script>
+
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+    this.page.url = 'http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-1.html';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Vue.Js - Simple Todo App - Part 1 - Page'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://iamkumaran.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100455951-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  </body>
+</html>

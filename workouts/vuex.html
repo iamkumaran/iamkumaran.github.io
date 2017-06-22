@@ -1,0 +1,233 @@
+
+<!DOCTYPE html><html class=''>
+<head>
+
+
+<style class="cp-pen-styles">:root{font-family: Arial;}
+input[type=text]{
+  font-size:16px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+}
+
+button{
+  background: #3498db;
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  border-radius: 28px;
+
+  color: #ffffff;
+  font-size: 16px;
+  padding: 8px 20px;
+  border: none;
+  cursor:pointer;
+}
+button:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+}
+input[type=text].error{border: 1px solid red;}
+[contenteditable=true]:focus{
+
+
+  overflow: hidden;
+  border: 1px solid transparent;
+
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+  white-space: nowrap;
+  border-radius: 10px;
+
+
+
+}
+
+.title{
+  display: inline-block;
+  width: 200px;
+  border: 1px solid transparent;
+  padding: 8px;
+  font-size: 16px;
+  vertical-align:middle;
+  box-sizing:border-box;
+}
+
+.title:hover{
+  border:1px solid #c4c4c4;
+  border-radius: 10px;
+}
+
+.remove{
+  cursor:pointer;
+  display:inline-block;
+  border: 1px solid #c4c4c4;
+  border-radius: 50%;
+  padding:0px 4px;
+  margin-left:10px;
+}
+.remove:hover{
+  background: #3cb0fd;
+}
+
+.completed{
+  text-decoration: line-through;
+}
+</style></head><body>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vuex"></script>
+
+<div id="todoApp">
+  <todo-component></todo-component>
+</div>
+<script src='https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js'></script>
+<script>const store = new Vuex.Store({
+  state:{
+    message: 'Welcome to Todo App with State Management',
+    addTodo: '',
+    lists: [],
+    hasError: false
+  },
+  getters:{ //similar to computed but this will cache for reuse
+    filterLists: function(state){
+      return _.orderBy(state.lists, ['isComplete', false])
+    }
+  },
+  mutations:{
+    addTask: function(state, payload){
+
+      //e.preventDefault();
+
+      if(!payload.title){
+        state.hasError = true;
+        return;
+      }
+
+      state.hasError = false;
+      state.lists.push({id:state.lists.length+1, title: payload.title, isComplete: false});
+
+      //state.addTodo = '';
+    },
+    updateTask: function(state, payload){
+      //e.preventDefault();
+      //console.log(e.target.innerText.trim());
+
+      var i = _.findIndex(state.lists, payload.list);
+      if(!state.lists[i]) return;//close button and content-editable are close by and both are triggered at once causes JS error.
+      if(payload.targetElem.innerText.trim() !== ''){
+        state.lists[i].title = payload.targetElem.innerText;
+      }else{
+        payload.targetElem.innerText = state.lists[i].title;
+      }
+      payload.targetElem.blur();
+    },
+    completeTask: function(state, payload){
+      var index = _.findIndex(state.lists, payload.list);
+      state.lists[index].isComplete = !state.lists[index].isComplete;
+    },
+    removeTask: function(state, payload){
+
+      var index = _.findIndex(state.lists, payload.list);
+      //alert(index)
+      state.lists.splice(index, 1);
+    }
+  },
+  actions: {
+    addTask: function(context, payload){
+      context.commit('addTask', payload);
+    },
+    updateTask: function(context, payload){
+      context.commit('updateTask', payload);
+    },
+    completeTask: function(context, payload){
+      context.commit('completeTask', payload);
+    },
+    removeTask: function(context, payload){
+      context.commit('removeTask', payload);
+    }
+  }
+
+})
+
+
+Vue.component('todo-component', {
+  template: `<div><h3>{{message}}</h3>
+  <form name="todo-form" method="post" action="" v-on:submit.prevent="addTask">
+    <input name="add-todo" v-model="addTodo" type="text" v-bind:class="{error: hasError}"/>
+    <button type="submit">Add</button>
+  </form>
+
+  <div class="todo-lists" v-if="lists.length">
+    <h3>My Todo Tasks</h3>
+    <ul>
+      <todo-list v-for="list in filterLists" v-bind:todo="list" v-bind:key="list.id"></todo-list>
+
+    </ul>
+
+
+  </div></div>`,
+
+  data: function(){
+    return{
+      addTodo: ''
+    }
+  },
+
+
+  computed: {
+    message: function(){
+      return this.$store.state.message
+    },
+    //addTodo: function(){
+      //return this.$store.state.addTodo
+    //},
+    lists: function(){
+      return this.$store.state.lists
+    },
+    hasError: function(){
+      return this.$store.state.hasError
+    },
+    filterLists: function(){
+      return this.$store.getters.filterLists;
+    }
+  },
+  methods: {
+    addTask: function(){
+
+      this.$store.dispatch('addTask', {title:this.addTodo});
+      this.addTodo = "";
+    }
+
+  }
+});
+
+Vue.component('todo-list', {
+  props: ['todo'],
+  template: '<li><input type="checkbox" v-on:change="completeItem(todo)" v-bind:checked="todo.isComplete"/><span class="title" contenteditable="true" v-on:keydown.enter="updateItem($event, todo)" v-on:blur="updateItem($event, todo)" v-bind:class="{completed: todo.isComplete}">{{todo.title}}</span><span class="remove" v-on:click="removeItem(todo)">x</span></li>',
+  methods:{
+    removeItem: function(list){
+      //console.log(this.lists);
+      //this.$emit('removeItem', list);
+      this.$store.dispatch('removeTask', {list});
+    },
+    updateItem: function(e, list){
+      e.preventDefault();
+      //this.$emit('updateItem', e, list)
+      this.$store.dispatch('updateTask', {targetElem:e.target, list});
+    },
+    completeItem: function(list){
+      //list.isComplete = !list.isComplete;
+      this.$store.dispatch('completeTask', {list})
+    }
+  }
+});
+
+var todoApp = new Vue({
+  el: '#todoApp',
+  store
+});
+
+//# sourceURL=pen.js
+</script>
+</body></html>
