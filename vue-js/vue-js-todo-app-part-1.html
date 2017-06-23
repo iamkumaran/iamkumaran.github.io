@@ -122,12 +122,19 @@
       <h1>Vue.js - Simple Todo App - Part 1</h1>
       <blockquote>PART 1: No Components, No State Management, just a simple Todo App.</blockquote>
 
-      <p class="lead">If you are new to Vue.js, you can get started from <a href="https://vuejs.org/v2/guide/" target="_blank">official Vue.js site</a>. If you know JavaScript, it wouldn't take much time to get started.</p>
+      <p class="lead">If you are new to Vue.js, you can get started from the <a href="https://vuejs.org/v2/guide/" target="_blank">official Vue.js site</a>. If you know JavaScript, it wouldn't take much time to get started.</p>
 
       <p class="bg-info">Note that Vue.js only supports ES5-compliant browsers (IE8 and below are not supported).</p>
 
+      <blockquote>
+        <h4>Update:</h4>
+        <p><a href="https://vuejs.org/v2/guide/comparison.html" target="_blank"/>Comparison of Vue.js with Other Frameworks</a></p>
+        <p><a href="https://10clouds.com/blog/vuejs-angular-react/" target="_blank"/>Will Vue.js Become a Giant Like Angular or React?</a></p>
+      </blockquote>
+      <br/>
+
       <h4>Hello World</h4>
-      <p class="lead">First lets just build a simple hello world using Vue.js. Here's the step by step</p>
+      <p class="lead">First, let's just build a simple hello world using <code>Vue.js</code> to understand how Vue works. Here's the step by step</p>
 
       <ol>
         <li>
@@ -154,17 +161,17 @@ var app = new Vue({
 
           <p class="lead"><code>el</code> - provide the DOM element to mount. Accepts CSS selector or HTMLElement. Let's mount by providing <code>div</code> ID <code>#app</code>.</p>
           <p class="lead"><code>data</code> - The data object for the Vue instance. This should be an object. Vue will convert this property into <code>reactive</code> property. </p>
-          <p class="bg-info"><b<Note:</b> In components, this should be an function not object. Don't worry about this now.</p>
+          <p class="bg-info"><b<Note:</b> In components, this should be a function not object. Don't worry about this now.</p>
 
           <p class="lead">To know more about the syntax, visit Vue.js docs <a href="https://vuejs.org/v2/guide/instance.html" target="_blank">The Vue Instance</a> and <a href="https://vuejs.org/v2/api" target="_blank">API reference</a></p>
         </li>
         <li>
-          <p class="lead">Now open the <code>index.html</code> in browser and you should see <code>Hello World!</code> message.</p>
+          <p class="lead">Now open the <code>index.html</code> in the browser and you should see <code>Hello World!</code> message.</p>
           <p data-height="209" data-theme-id="0" data-slug-hash="eRWovz" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Hello World - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/eRWovz/">Hello World - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           </li>
       </ol>
 
-      <p class="lead">That's all about <code>Hello World!</code> App. Now lets build a simple <code>Todo</code> app.</p>
+      <p class="lead">That's all about <code>Hello World!</code> App. Now let's build a simple <code>Todo</code> app.</p>
 
       <h2>Simple Todo App</h2>
       <p ><img src="/img/vue-js/todo-app-final.png" style="width:30%;" class="pull-right"/></p>
@@ -207,7 +214,7 @@ var todoApp = new Vue({
       <p data-height="265" data-theme-id="0" data-slug-hash="weeBgO" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Add Form - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/weeBgO/">Add Form - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
       <p class="lead"><b>v-model</b></p>
-      <p class="lead">Use <code>v-model</code> to create a two way data binding for the input textbox. Whenever we type into the textbox <code>v-model</code> will automatically updata Vue <code>data</code> object.</p>
+      <p class="lead">Use <code>v-model</code> to create a two-way data binding for the input textbox. Whenever we type into the textbox <code>v-model</code> will automatically update Vue <code>data</code> object.</p>
 
       <p class="lead">Now update the <code>&lt;input&gt;</code> textbox with the <code>v-model</code></p>
       <pre><code class="language-markup">
@@ -225,7 +232,7 @@ var todoApp = new Vue({
 })
       </code></pre>
 
-      <p class="lead">For testing out two way data binding, lets put <code>{{addTodoInput}}</code> anywhere in the markup. Whenever I type, input value will print in the browser like a live update.</p>
+      <p class="lead">For testing out two-way data binding, lets put <code>{{addTodoInput}}</code> anywhere in the markup. Whenever I type, input value will print in the browser like a live update.</p>
       <p class="lead">Go ahead and type something in the below codepen,</p>
       <p data-height="264" data-theme-id="0" data-slug-hash="qjjdmL" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Add Form - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/qjjdmL/">Add Form - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
@@ -266,14 +273,14 @@ var todoApp = new Vue({
       <p class="lead">There are more about events and event modifiers. See Vue docs <a href="https://vuejs.org/v2/guide/events.html" target="_target">Event Handling</a></p>
 
       <h4>Form Submit</h4>
-      <p class="lead">Back to Todo app, lets add <code>onsubmit</code> event to the <code>&lt;form&gt;</code> tag and we will add <code>.prevent</code> which does <code>event.preventDefault()</code></p>
+      <p class="lead">Back to Todo app, let's add <code>onsubmit</code> event to the <code>&lt;form&gt;</code> tag and we will add <code>.prevent</code> which does is <code>event.preventDefault()</code></p>
 
       <pre><code class="language-javascript">
         &lt;form name="todo-form" method="post" action="" v-on:submit.prevent="addTask"&gt;
       </code></pre>
 
-      <p class="lead"><code>addTask</code> is method to create new todo's. Lets create this method in <code>Vue</code> instance,</p>
-      <p class="lead"><code>lists</code> is a Vue <code>data</code> object, to store all Todo's items. Lets add that one to <code>data</code> object.</p>
+      <p class="lead"><code>addTask</code> is method to create new todo's. Let's create this method in <code>Vue</code> instance,</p>
+      <p class="lead"><code>lists</code> is a Vue <code>data</code> object, to store all Todo's items. Let's add that one to <code>data</code> object.</p>
       <p class="lead">
         <pre><code class="language-javascript">
 var todoApp = new Vue({
@@ -308,7 +315,7 @@ var todoApp = new Vue({
       ]
       </code></pre>
 
-      <p class="lead">Now lets make the form submit using <code>addTask()</code> and add the new item to the <code>lists</code></p>
+      <p class="lead">Now let's make the form submit using <code>addTask()</code> and add the new item to the <code>lists</code></p>
 
       <p class="lead">I've updated the <code>addTask()</code> method to update the <code>lists</code> reactive property</p>
       <pre><code class="language-javascript">
@@ -327,7 +334,7 @@ addTask: function(){
       <p class="lead">Check here in the codepen. You should able to add new Todo's,</p>
       <p data-height="219" data-theme-id="0" data-slug-hash="WOOpPv" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Form Submit - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WOOpPv/">Form Submit - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
-      <p class="lead">I know there is nothing happens after hitting the "Add" button. But in the backgorund <code>lists</code> is getting updated with new added todo items. Lets check in the <code>codepen console</code> (Make sure you are inspecting on codepen result/white area)</p>
+      <p class="lead">I know there is nothing happens after hitting the "Add" button. But in the background <code>lists</code> is getting updated with newly added todo items. Let's check in the <code>codepen console</code> (Make sure you are inspecting on codepen result/white area)</p>
       <p class="lead"><img src="/img/vue-js/todo-app-console-log.png" style="width:40%;"/></p>
       <p class="lead">You can see items are getting updated in the <code>items</code>. Next step is to list all Todo Items in the page.</p>
 
@@ -340,7 +347,7 @@ addTask: function(){
 
       <p class="lead"><code>:key</code> - It is recommended to provide a key with <code>v-for</code> if you are updating the lists. <code>key</code> is not needed if it's a simple loop.</p>
 
-      <p class="lead">Lets update the markup to list all todo items,</p>
+      <p class="lead">Let's update the markup to list all todo items,</p>
 
       <pre><code class="language-markup">
         &lt;div class=&quot;todo-lists&quot; v-if=&quot;lists.length&quot;&gt;
@@ -355,7 +362,7 @@ addTask: function(){
       <p class="lead">Go ahead and see it yourself,</p>
       <p data-height="265" data-theme-id="0" data-slug-hash="owwGEO" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="List all items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/owwGEO/">List all items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
-      <p class="lead"> <img class="pull-right" src="/img/vue-js/todo-list-items.png" style="width:30%;margin:6px 3px 0px;"/> This works cool but we have a issue here. There is no vaildation when adding new todo items even <code>empty</code> items are appearing in the list. So lets a simple validation and make sure <code>empty</code> are not getting submitted.</p>
+      <p class="lead"> <img class="pull-right" src="/img/vue-js/todo-list-items.png" style="width:30%;margin:6px 3px 0px;"/> This works cool but we have an issue here. There is no validation when adding new todo items even <code>empty</code> items are appearing in the list. So lets a simple validation and make sure <code>empty</code> are not getting submitted.</p>
 
       <p class="lead">When we hit the <code>Add</code> button without typing anything into textbox then we will show a red border textbox which will indicate textbox must be filled. I'm adding a new property called <code>hasError</code> in Vue data object to track textbox is filled or not</p>
       <pre><code class="language-javascript">
@@ -388,7 +395,7 @@ addTask: function(){
   }
 </code></pre>
 
-      <p class="lead">Lets update the textbox to show red border when we simply hitting the button. We will use <code>v-bind:class</code> to attach <code>error</code> class,</p>
+      <p class="lead">Let's update the textbox to show red border when we simply hitting the button. We will use <code>v-bind:class</code> to attach <code>error</code> class,</p>
 <pre><code class="language-markup">
 &lt;input name="add-todo" type="text" v-model="addTodoInput" v-bind:class="{error: hasError}"/&gt;
 
@@ -398,7 +405,7 @@ addTask: function(){
       <p data-height="265" data-theme-id="0" data-slug-hash="MooVvZ" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="List all items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/MooVvZ/">List all items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
       <h3 id="update-todo">Update Todo</h3>
-      <p class="lead">To update the existing create Todo item, lets update the markup</p>
+      <p class="lead">To update the existing create Todo item, let's update the markup</p>
       <pre><code class="language-markup">
         // Updating this &lt;span&gt; tag
         &lt;span class="title" v-bind:class="{completed: list.isComplete}"&gt;{{list.title}}&lt;/span&gt;
@@ -417,7 +424,7 @@ addTask: function(){
       <p class="lead"><code>v-on:keydown.enter</code> - This event will trigger when hitting the <code>ENTER</code> key and execute <code>updateTask()</code> method.</p>
       <p class="lead"><code>v-on:blur</code> - This event will trigger during blur and execute <code>updateTask()</code> method.</p>
 
-      <p class="lead">Lets add <code>updateTask</code> to Vue methods and update the edited list.</p>
+      <p class="lead">Let's add <code>updateTask</code> to Vue methods and update the edited list.</p>
       <pre><code class="language-javascript">
         methods:{
           ...
@@ -434,8 +441,8 @@ addTask: function(){
       <p data-height="386" data-theme-id="0" data-slug-hash="mwwLrL" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Update items - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/mwwLrL/">Update items - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
       <h3 id="mark-as-complete">Mark as Complete</h3>
-      <p class="lead">This is another feature I like to add to Todo app. If the task is complete lets strike out the completed task.</p>
-      <p class="lead">Lets add a <code>&lt;checkbox&gt;</code> to each Todo item task. When checking the <code>&lt;checkbox&gt;</code> will strike-out the task.</p>
+      <p class="lead">This is another feature I like to add to Todo app. If the task is complete let's strike out the completed task.</p>
+      <p class="lead">Let's add a <code>&lt;checkbox&gt;</code> to each Todo item task. When checking the <code>&lt;checkbox&gt;</code> will strike-out the task.</p>
       <pre><code class="language-markup">
 
         &lt;li v-for=&quot;list in lists&quot; :key=&quot;list.id&quot;&gt;
@@ -464,15 +471,15 @@ addTask: function(){
       <p class="lead">Here's the demo in codepen and now try checking the checkbox in Todo list,</p>
       <p data-height="365" data-theme-id="0" data-slug-hash="WOOygp" data-default-tab="result" data-user="mkumaran" data-embed-version="2" data-pen-title="Mark as Complete - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/WOOygp/">Mark as Complete - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
-      <p class="lead">Demo looks great but now I want to move completed items below and active items to top. So that it's easy to manage the Todo App Task list. To bring the active items top, lets sort the <code>lists</code> by <code>isComplete: false</code></p>
+      <p class="lead">Demo looks great but now I want to move completed items below and active items to top. So that it's easy to manage the Todo App Task list. To bring the active items top, let's sort the <code>lists</code> by <code>isComplete: false</code></p>
 
-      <p class="lead">Now we need to filter or sort the data without mutating the <code>lists</code> data object. Lests create a another method to filter the data but this method should go inside <code>computed</code> property.</p>
+      <p class="lead">Now we need to filter or sort the data without mutating the <code>lists</code> data object. Let's create an another method to filter the data but this method should go inside <code>computed</code> property.</p>
 
       <p class="lead"><b>Why Computed property instead of Methods?</b></p>
-      <p class="lead">It's better read it from Vue docs, <a href="https://vuejs.org/v2/guide/computed.html" target="_blank">Computed Properties</a></p>
-      <p class="lead">Main reason to go with <code>computed</code> property is <b>"computed properties are cached based on their dependencies"</b>. We can still define the same method to <code>Methods</code> property but when template rendered each time, the method will execute each time. A <code>computed</code> property will only re-evaluate when some of its dependencies have changed. As long as <coce>lists</code> data object is not changed, computed property will immediately return the previously computed result without having to run the function again.</p>
+      <p class="lead">It's better to read it from Vue docs, <a href="https://vuejs.org/v2/guide/computed.html" target="_blank">Computed Properties</a></p>
+      <p class="lead">The main reason to go with <code>computed</code> property is <b>"computed properties are cached based on their dependencies"</b>. We can still define the same method to <code>Methods</code> property but when template rendered each time, the method will execute each time. A <code>computed</code> property will only re-evaluate when some of its dependencies have changed. As long as <coce>lists</code> data object is not changed, computed property will immediately return the previously computed result without having to run the function again.</p>
 
-      <p class="lead">Lets update the JS and add <code>computed</code> property</p>
+      <p class="lead">Let's update the JS and add <code>computed</code> property</p>
       <pre><code class="language-javascript">
 
         data: {
@@ -488,7 +495,7 @@ addTask: function(){
         }
         </code></pre>
 
-        <p class="lead"><code>filterLists</code> methods will return sorted list with active at top and completed items at bottom.</p>
+        <p class="lead"><code>filterLists</code> methods will return sorted list with active at top and completed items at the bottom.</p>
         <p class="lead">I'm using <a href="https://lodash.com/" target="_blank"><code>lodash</code></a> library to perform array manipulation. <code>_.orderBy</code> will return sorted lists</p>
 
         <p class="lead">Make sure you include <code>lodash</code> library before testing the code,</p>
@@ -513,7 +520,7 @@ addTask: function(){
         <p data-height="407" data-theme-id="0" data-slug-hash="KqqeLZ" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Mark as Complete with sort - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/KqqeLZ/">Mark as Complete with sort - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
         <h3 id="delete-todo">Delete Todo</h3>
-        <p class="lead">Next is, we are going to delete a Todo item. Lets add the below delete icon in the markup</p>
+        <p class="lead">Next is, we are going to delete a Todo item. Let's add the below delete icon in the markup</p>
 
         <p class="lead"><code>&lt;span class="remove" v-on:click="removeTask(list)"&gt;x&lt;/span&gt;</code></p>
         <p class="lead"><code>removeTask</code> - method will remove todo item from <code>lists</code> data object.</p>
@@ -528,12 +535,12 @@ addTask: function(){
           }
         </code></pre>
 
-        <p class="lead">Checkout the codepen for deleting a Todo item,</p>
+        <p class="lead">Check out the codepen for deleting a Todo item,</p>
         <p data-height="405" data-theme-id="0" data-slug-hash="QggZRM" data-default-tab="html,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Remove Item - Demo Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QggZRM/">Remove Item - Demo Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 
         <h2>The Final Demo</h2>
-        <p class="lead">Finally we have a built a simple Todo App using <code>Vue.js</code>. Here's the complete HTML, CSS and JavaScript to play around.</p>
+        <p class="lead">Finally, we have a built a simple Todo App using <code>Vue.js</code>. Here's the complete HTML, CSS, and JavaScript to play around.</p>
 
         <p class="lead"><b>HTML/CSS</b></p>
         <p data-height="489" data-theme-id="0" data-slug-hash="QgKpNq" data-default-tab="html,css" data-user="mkumaran" data-embed-version="2" data-pen-title="Todo App - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/QgKpNq/">Todo App - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -546,7 +553,7 @@ addTask: function(){
 
         <h2>What's Next?</h2>
         <p class="lead">In next article, I'll show you how to use <code>Components</code> and <code>State Management</code> with the same Todo App. Once I complete the write-up, I'll share the link here.</p>
-        <p class="lead">If you can't wait, then please take a look at my codepen</p>
+        <p class="lead">Meanwhile, please take a look at my codepens,</p>
         <p class="lead"><b>Todo App with Components</b> - <a href="https://codepen.io/mkumaran/pen/wegvoO" target="_blank">https://codepen.io/mkumaran/pen/wegvoO</a></p>
         <p class="lead"><b>Todo App Using Vuex (State Management)</b> - <a href="https://codepen.io/mkumaran/pen/vZgara" target="_blank">https://codepen.io/mkumaran/pen/vZgara</a></p>
 
