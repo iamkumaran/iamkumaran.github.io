@@ -1,0 +1,718 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Vue.Js - Todo App Using Vuex - Part 2 | Muthu Kumaran</title>
+        <meta name="description" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js">
+        <meta name="author" content="Muthu Kumaran">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="http://iamkumaran.github.io/img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="http://iamkumaran.github.io/img/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="http://iamkumaran.github.io/img/favicons/favicon-16x16.png">
+        <link rel="manifest" href="http://iamkumaran.github.io/img/favicons/manifest.json">
+        <link rel="mask-icon" href="http://iamkumaran.github.io/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+
+
+        <!-- Open Graph data -->
+        <meta property="og:url"           content="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-2.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Vue.Js - Todo App Using Vuex - Part 1 By Muthu Kumaran #vue-js" />
+        <meta property="og:image"         content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-2.png" />
+        <meta property="og:description"   content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a todo app using Vue.js, Vuex and Components." />
+        <meta property="og:site_name"     content="iamkumaran github" />
+        <!--<meta property="fb:admins"    content="Facebook numeric ID" />-->
+
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js, Vuex and Components.">
+        <meta name="twitter:site" content="@iamkumaran">
+        <meta name="twitter:title" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js">
+        <meta name="twitter:creator" content="@Muthu Kumaran">
+        <!-- Twitter Summary card images must be at least 120x120px -->
+        <meta name="twitter:image" content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-2.png">
+
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="Vue.Js - Simple Todo App - Part 1 | Muthu Kumaran">
+        <meta itemprop="description" content="Vue is a progressive JavaScript framework that focuses on building user interfaces. Learn how to how to build a simple todo app using Vue.js, Vuex and Components.">
+        <meta itemprop="image" content="http://iamkumaran.github.io/img/portfolio/social-icons/vue-js-part-2.png">
+
+
+
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+
+
+        <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="/css/styles.min.css?v=1.2" rel="stylesheet">
+        <link rel="stylesheet" href="/css-variables/css/main.css?v=1.2">
+
+        <!-- Custom Fonts -->
+        <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    </head>
+  <body id="page-top" class="index">
+    <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="http://iamkumaran.github.io/">Muthu Kumaran</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#my-work">My Work</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container" id="maincontent" tabindex="-1">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="../img/portfolio/vue-js-part-2.png" alt="">
+                    <div class="intro-text">
+                        <h1 class="name"></h1>
+                        <hr class="star-light">
+                        <span class="skills">By Muthu Kumaran - June 28, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+  <section id="articles">
+    <div class="container">
+
+      <div class="fb-like"
+          data-href="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-2.html"
+          data-layout="standard"
+          data-action="like"
+          data-show-faces="true">
+        </div>
+
+      <h1>Vue.js - Todo App Using Vuex - Part 2</h1>
+      <blockquote>PART 2: With Components, and State Management.</blockquote>
+
+      <p class="lead"><blockquote>Hope you have read <a href="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-1.html">VUE.JS - SIMPLE TODO APP - PART 1</a>. It's a continuation which I'm gonna cover Todo APP with Components and State Management using <code>Vuex</code></blockquote></p>
+
+      <h2>Components</h2>
+      <p class="lead">Now we have built a Todo App. Let's using Vue Components to self-contain the app and make it reusable.</p>
+      <h4>Vue Components</h4>
+      <p class="lead">The component system is another important concept in Vue, because it’s an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components.</p>
+      <p class="lead">In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+        <pre><code class="language-javascript">
+// Define a new component called `my-component`
+Vue.component('my-component', {
+  template: '&lt;li&gt;This is a component&lt;/li&gt;'
+})
+        </code></pre>
+      </p>
+
+      <p class="lead">Now you can compose it in another component’s template:</p>
+      <pre><code class="language-markup">
+&lt;ol&gt;
+  &lt;!-- Create an instance of the `my-component` component --&gt;
+  &lt;my-component&gt;&lt;/my-component&gt;
+&lt;/ol&gt;
+      </code></pre>
+
+      <p class="lead">This will render the text <code>This is a component</code>.</p>
+      <p class="lead">To learn more about Vue Components, <a href="https://vuejs.org/v2/guide/#Composing-with-Components" target="_target">Composing with Components</a></p>
+
+      <h4>Todo Components</h4>
+      <p class="lead">Let's modify the previous <a href="https://codepen.io/mkumaran/pen/QgKpNq" target="_blank">Todo App code</a> to create components. I'm going to create two components, <code>&lt;todo-component&gt;</code> and <code>&lt;todo-list&gt;</code>.</p>
+      <p class="lead"><code>&lt;todo-component&gt;</code> - will have all Todo App markup and Todo List items (&lt;todo-list&gt;) will be a child component</p>
+      <p class="lead"><code>&lt;todo-list&gt;</code> - will hold Todo List items markup. Also used in the parent component <code>&lt;todo-component&gt;</code></p>
+
+      <p class="lead">Let's update the markup</p>
+
+      <pre><code class="language-markup">
+&lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;todoApp&quot;&gt;
+  &lt;todo-component&gt;&lt;/todo-component&gt;
+&lt;/div&gt;
+      </code></pre>
+
+      <p class="lead">Let's create <code>&lt;todo-component&gt;</code>.</p>
+
+      <pre><code class="language-javascript">
+Vue.component('todo-component', {
+  template: `
+    &lt;div&gt;
+      &lt;h3&gt;{{message}}&lt;/h3&gt;
+      &lt;form name=&quot;todo-form&quot; method=&quot;post&quot; action=&quot;&quot; v-on:submit.prevent=&quot;addTask&quot;&gt;
+        &lt;input name=&quot;add-todo&quot; v-model=&quot;addTodo&quot; type=&quot;text&quot; v-bind:class=&quot;{error: hasError}&quot;/&gt;
+        &lt;button type=&quot;submit&quot;&gt;Add&lt;/button&gt;
+      &lt;/form&gt;
+
+      &lt;div class=&quot;todo-lists&quot; v-if=&quot;lists.length&quot;&gt;
+        &lt;h3&gt;My Todo Tasks&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;todo-list v-for=&quot;list in filterLists&quot; v-bind:todo=&quot;list&quot; v-bind:key=&quot;list.id&quot;&gt;&lt;/todo-list&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;`
+});
+      </code></pre>
+
+      <p class="lead"><code>&lt;todo-list&gt;</code> component,</p>
+      <pre><code class="language-javascript">
+Vue.component('todo-list', {
+
+  props: ['todo'],
+
+  template: `
+    &lt;li&gt;
+      &lt;input type=&quot;checkbox&quot; v-on:change=&quot;completeTask(todo)&quot; v-bind:checked=&quot;todo.isComplete&quot;/&gt;
+      &lt;span class=&quot;title&quot; contenteditable=&quot;true&quot; v-on:keydown.enter=&quot;updateTask($event, todo)&quot; v-on:blur=&quot;updateTask($event, todo)&quot; v-bind:class=&quot;{completed: todo.isComplete}&quot;&gt;{{todo.title}}&lt;/span&gt;
+      &lt;span class=&quot;remove&quot; v-on:click=&quot;removeTask(todo)&quot;&gt;x&lt;/span&gt;
+    &lt;/li&gt;`
+});
+      </code></pre>
+
+      <p class="lead"><code>props</code> - Every component instance has its own isolated scope. This means you cannot (and should not) directly reference parent data in a child component’s template. Data can be passed down to child components using props. A prop is a custom attribute for passing information from parent components. A child component needs to explicitly declare the props it expects to receive using the props option</p>
+
+      <pre><code class="language-markup">
+// &lt;todo-list&gt; from parent component
+&lt;todo-list v-for=&quot;list in filterLists&quot; v-bind:todo=&quot;list&quot; v-bind:key=&quot;list.id&quot;&gt;&lt;/todo-list&gt;
+      </code></pre>
+      <p class="lead">Where we bind <code>v-bind:todo</code> and <code>v-bind:key</code> which are passed down to child components using props (<code>props: ['todo', 'key']</code>).</p>
+
+      <p class="lead">To learn more about <a href="https://vuejs.org/v2/guide/components.html" target="_blank">Vue Components</a>.</p>
+
+
+    <h2>Vuex</h2>
+    <p class="lead"><code><a href="https://vuex.vuejs.org/en/" target="_blank">Vuex</a></code> is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. Inspired by <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank">Flux</a>, <a href="http://redux.js.org/" target="_blank">Redux</a> and <a href="https://guide.elm-lang.org/architecture/" target="_blank">The Elm Architecture</a></p>
+
+    <p class="lead">To use <code>Vuex</code>, include the below script after <code>Vue</code> and it will install itself automatically:</p>
+    <pre><code class="language-markup">
+&lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vuex"&gt;&lt;/script&gt;
+    </code></pre>
+
+    <p class="lead">First, we'll need to create a store. A store is essentially a global reactive object which follows the normal Vue reactivity patterns. It cannot be accessed or modified directly in order to ensure a consistent state and allow easy tracking of changes. Here's a sample store,</p>
+
+    <pre><code class="language-javascript">
+const store = new Vuex.Store({
+
+  state:{
+
+  },
+  getters:{ //similar to computed but this will cache for reuse
+
+  },
+  mutations:{
+
+  },
+  actions: {
+
+  }
+
+});
+    </code></pre>
+
+    <p class="lead"><b>1. <code>state</code></b></p>
+    <p class="lead">This is where you define your data structure for your app. You can also set initial state here. For the Todo App, initial state should be,</p>
+    <pre><code class="language-javascript">
+  state:{
+        message: 'Welcome to Todo App with State Management',
+        lists: [],
+        hasError: false
+  },
+    </code></pre>
+
+    <p class="lead">Yes, the data structure is similar to PART1: Simple Todo App.</p>
+
+    <p class="lead">To access the store in your components, use <code>this.$store</code>. So, <code>this.$store.state.message</code> will return <code>Welcome to Todo App with State Management</code>.</p>
+
+    <p class="lead"><b>2. <code>getters</code></b></p>
+    <p class="lead">Vuex allows us to define "getters" in the store. You can think of them as computed properties for stores. Like computed properties, a getter's result is cached based on its dependencies, and will only re-evaluate when some of its dependencies have changed.</p>
+    <p class="lead">Getters will receive the <code>state</code> as their 1st argument:</p>
+    <pre><code class="language-javascript">
+getters:{
+      filterLists: function(state){
+        return _.orderBy(state.lists, ['isComplete', false])
+      }
+},
+    </code></pre>
+
+    <p class="lead">Now we have moved<code>filterLists</code> to the Vuex store. In components, it can be accessed through <code>this.$store.getters.filterLists</code></p>
+
+    <p class="lead"><b>3. <code>mutations</code></b></p>
+    <p class="lead">The only way to actually change state in a Vuex store is by committing a mutation. Vuex mutations are very similar to events: each mutation has a string type and a handler. The handler function is where we perform actual state modifications, and it will receive the <code>state</code> as the first argument and <code>payload</code> as second argument</p>
+
+    <p class="lead">In most cases, the payload should be an object so that it can contain multiple fields, and the recorded mutation will also be more descriptive.</p>
+
+    <p class="lead">For the Todo App, we will move all existing methods to the mutations,</p>
+    <pre><code class="language-javascript">
+mutations:{
+
+      addTask: function(state, payload){
+        if(!payload.title){
+          state.hasError = true;
+          return;
+        }
+
+        state.hasError = false;
+        state.lists.push({id:state.lists.length+1, title: payload.title, isComplete: false});
+      },
+
+      updateTask: function(state, payload){
+        var i = _.findIndex(state.lists, payload.list);
+        if(!state.lists[i]) return;
+
+        if(payload.targetElem.innerText.trim() !== ''){
+          state.lists[i].title = payload.targetElem.innerText;
+        }else{
+          payload.targetElem.innerText = state.lists[i].title;
+        }
+
+        payload.targetElem.blur();
+      },
+
+      completeTask: function(state, payload){
+        var index = _.findIndex(state.lists, payload.list);
+        state.lists[index].isComplete = !state.lists[index].isComplete;
+      },
+
+      removeTask: function(state, payload){
+        var index = _.findIndex(state.lists, payload.list);
+        state.lists.splice(index, 1);
+      }
+},
+    </code></pre>
+
+    <p class="lead">In the component, you cannot directly call a mutation handler. Think of it more like event registration: "When a mutation with type <code>addTask</code> is triggered, call this handler." To invoke a mutation handler, you need to call <code>this.$store.commit</code> with its type:</p>
+    <pre><code class="language-javascript">this.$store.commit('addTask')</code></pre>
+
+    <p class="lead">To commit with <code>payload</code> then it should be,</p>
+    <pre><code class="language-javascript">
+      this.$store.commit('updateTask', {targetElem: e.target, list: list});
+    </code></pre>
+
+    <p class="bg-info">One important rule to remember is that mutation handler functions must be synchronous. It's cannot handle asynchronous operations. To handle asynchronous operations, let's use <code>Actions</code>.</p>
+
+    <p class="lead"><b>4. <code>actions</code></b></p>
+    <p class="lead">Actions are similar to mutations, the differences being that:</p>
+    <ul class="lead">
+      <li>Instead of mutating the state, actions commit mutations.</li>
+      <li>Actions can contain arbitrary asynchronous operations.</li>
+    </ul>
+    <p class="lead">Action handlers receive a <code>context</code> object which exposes the same set of methods/properties on the store instance, so you can call <code>context.commit</code> to commit a mutation, or access the state and getters via <code>context.state</code> and <code>context.getters</code>.</p>
+
+    <pre><code class="language-javascript">
+  actions: {
+        addTask: function(context, payload){
+          context.commit('addTask', payload);
+        },
+
+        updateTask: function(context, payload){
+          context.commit('updateTask', payload);
+        },
+
+        completeTask: function(context, payload){
+          context.commit('completeTask', payload);
+        },
+
+        removeTask: function(context, payload){
+          context.commit('removeTask', payload);
+        }
+  }
+    </code></pre>
+
+    <p class="lead"><code>Actions</code> are triggered with the <code>this.$store.dispatch</code> method:</p>
+
+    <pre><code class="language-javascript">this.$store.dispatch('addTask', {title: this.addTodoInput});</code></pre>
+
+    <p class="lead">This may look dumb at first sight: if we want to add a Todo item, why don't we just call <code>this.$store.commit('addTask')</code> directly? Well, remember that mutations must be synchronous? Actions don't. We can perform asynchronous operations inside an action</p>
+
+    <p class="lead"><b>5. <code>Modules</code></b></p>
+    <p class="lead">Modules are useful when you are working on big projects. <code>Todo</code> is a small app and we are not using <code>modules</code>. You can learn from here, <a href="https://vuex.vuejs.org/en/modules.html" target="_blank"><b>Modules</b></a>.</p>
+
+    <h4>Todo App Store</h4>
+    <p class="lead">Let's put all the pieces together and the Todo App store will be:</p>
+    <pre><code class="language-javascript">
+const store = new Vuex.Store({
+  state:{
+        message: 'Welcome to Todo App with State Management',
+        lists: [],
+        hasError: false
+  },
+  getters:{ //similar to computed but this will cache for reuse
+        filterLists: function(state){
+          return _.orderBy(state.lists, ['isComplete', false])
+        }
+  },
+  mutations:{
+        addTask: function(state, payload){
+
+          if(!payload.title){
+            state.hasError = true;
+            return;
+          }
+
+          state.hasError = false;
+          state.lists.push({id:state.lists.length+1, title: payload.title, isComplete: false});
+        },
+
+        updateTask: function(state, payload){
+          var i = _.findIndex(state.lists, payload.list);
+          if(!state.lists[i]) return;//close button and content-editable are close-by and both are triggered at once causes JS error.
+          if(payload.targetElem.innerText.trim() !== ''){
+            state.lists[i].title = payload.targetElem.innerText;
+          }else{
+            payload.targetElem.innerText = state.lists[i].title;
+          }
+          payload.targetElem.blur();
+        },
+
+        completeTask: function(state, payload){
+          var index = _.findIndex(state.lists, payload.list);
+          state.lists[index].isComplete = !state.lists[index].isComplete;
+        },
+
+        removeTask: function(state, payload){
+          var index = _.findIndex(state.lists, payload.list);
+          state.lists.splice(index, 1);
+        }
+  },
+  actions: {
+
+        addTask: function(context, payload){
+          context.commit('addTask', payload);
+        },
+
+        updateTask: function(context, payload){
+          context.commit('updateTask', payload);
+        },
+
+        completeTask: function(context, payload){
+          context.commit('completeTask', payload);
+        },
+
+        removeTask: function(context, payload){
+          context.commit('removeTask', payload);
+        }
+  }
+
+})
+    </code></pre>
+
+    <h4>Inject <code>store</code> into <code>Todo</code> App</h4>
+    <p class="lead">Now we have a <code>store</code> ready and we need to find a way to inject it into the <code>Todo</code> App. Vuex provides a mechanism to "inject" the store into all child components from the root component with the store option.</p>
+
+    <p class="lead">Let's update the <code>Todo</code> app Vue constructor to inject the <code>store</code>:</p>
+    <pre><code class="language-javascript">
+var todoApp = new Vue({
+  el: '#todoApp',
+  store
+});
+    </code></pre>
+
+    <p class="lead">By providing the <code>store</code> option to the root instance, the store will be injected into all child components of the root and will be available on them as <code>this.$store</code>.</p>
+
+    <h4>Updating Components</h4>
+    <p class="lead">Let's update the <code>components</code> to <code>dispatch</code> the actions.</p>
+
+    <p class="lead"><b><code>todo-component</code> Component</b></p>
+    <pre><code class="language-javascript">
+Vue.component('todo-component', {
+  template: `
+        &lt;div&gt;&lt;h3&gt;{{message}}&lt;/h3&gt;
+          &lt;form name=&quot;todo-form&quot; method=&quot;post&quot; action=&quot;&quot; v-on:submit.prevent=&quot;addTask&quot;&gt;
+            &lt;input name=&quot;add-todo&quot; v-model=&quot;addTodo&quot; type=&quot;text&quot; v-bind:class=&quot;{error: hasError}&quot;/&gt;
+            &lt;button type=&quot;submit&quot;&gt;Add&lt;/button&gt;
+          &lt;/form&gt;
+
+          &lt;div class=&quot;todo-lists&quot; v-if=&quot;lists.length&quot;&gt;
+            &lt;h3&gt;My Todo Tasks&lt;/h3&gt;
+            &lt;ul&gt;
+              &lt;todo-list v-for=&quot;list in filterLists&quot; v-bind:todo=&quot;list&quot; v-bind:key=&quot;list.id&quot;&gt;&lt;/todo-list&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+  `,
+
+  data: function(){
+        return{
+          addTodoInput: ''
+        }
+  },
+
+  computed: {
+        message: function(){
+          return this.$store.state.message
+        },
+        lists: function(){
+          return this.$store.state.lists
+        },
+        hasError: function(){
+          return this.$store.state.hasError
+        },
+        filterLists: function(){
+          return this.$store.getters.filterLists;
+        }
+  },
+
+  methods: {
+        addTask: function(){
+          this.$store.dispatch('addTask', {title:this.addTodoInput});
+          this.addTodoInput = "";
+        }
+  }
+});
+    </code></pre>
+
+    <p class="lead">Here you might have notice two things,</p>
+    <p class="lead">1. <code>data</code> - Must be a function. Dont' get confused with <code>Vue</code> constructor <code>data</code> which is an object.</p>
+    <p class="lead">2. <code>addTodoInput</code> - It's a Vue model and I don't want this to be part of <code>store</code>. </p>
+
+    <p class="lead"><b><code>todo-list</code> Component</b></p>
+    <p class="lead">Now we are updating <code>todo-list</code> component to dispatch actions.</p>
+
+    <pre><code class="language-javascript">
+Vue.component('todo-list', {
+  props: ['todo'],
+
+  template: `
+        &lt;li&gt;
+          &lt;input type=&quot;checkbox&quot; v-on:change=&quot;completeTask(todo)&quot; v-bind:checked=&quot;todo.isComplete&quot;/&gt;
+          &lt;span class=&quot;title&quot; contenteditable=&quot;true&quot; v-on:keydown.enter=&quot;updateTask($event, todo)&quot; v-on:blur=&quot;updateTask($event, todo)&quot; v-bind:class=&quot;{completed: todo.isComplete}&quot;&gt;{{todo.title}}&lt;/span&gt;
+          &lt;span class=&quot;remove&quot; v-on:click=&quot;removeTask(todo)&quot;&gt;x&lt;/span&gt;
+        &lt;/li&gt;
+  `,
+
+  methods:{
+        removeTask: function(list){
+          this.$store.dispatch('removeTask', {list});
+        },
+
+        updateTask: function(e, list){
+          e.preventDefault();
+          this.$store.dispatch('updateTask', {targetElem:e.target, list});
+        },
+
+        completeTask: function(list){
+          this.$store.dispatch('completeTask', {list})
+        }
+  }
+});
+    </code></pre>
+
+    <h2>Final Piece</h2>
+    <p class="lead">Finally, we have come to end. Now the simple <code>Todo</code> app is componentized and using <code>Vuex</code> to manage the states.</p>
+
+    <p class="lead">Complete HTML, CSS, and JavaScript code for Todo App will be available at <a href="https://codepen.io/mkumaran/pen/vZgara" target="_blank">my CodePen</a>.</p>
+
+    <p class="lead">Here's the <code>Todo</code> App demo:</p>
+
+    <p data-height="265" data-theme-id="0" data-slug-hash="vZgara" data-default-tab="js,result" data-user="mkumaran" data-embed-version="2" data-pen-title="Todo App with Vuex - State Management - Vue.js" class="codepen">See the Pen <a href="https://codepen.io/mkumaran/pen/vZgara/">Todo App with Vuex - State Management - Vue.js</a> by Muthu Kumaran (<a href="https://codepen.io/mkumaran">@mkumaran</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <br/><br/>
+
+
+      <div class="text-center">
+        <p class="lead">If you like this, please share</p>
+        <div class="addthis_inline_share_toolbox"></div>
+      </div>
+      <br/><br/>
+      <div class="fb-like"
+        data-href="http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-2.html"
+        data-layout="standard"
+        data-action="like"
+        data-show-faces="true">
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <section id="comment-box">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2>Comments</h2>
+              <hr class="star-primary">
+          </div>
+      </div>
+      <p class="lead">Thank you for visiting my page. Please shares your views and suggestion in the comment box below.</p>
+      <div id="disqus_thread"></div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="text-center">
+      <div class="footer-above">
+          <div class="container">
+              <div class="row">
+                  <!--<div class="footer-col col-md-4">
+                      <h3>Location</h3>
+                      <p class="lead">XXXXXXXX
+                          <br>XXX, XXXX XXXXX</p>
+                  </div>-->
+                  <div class="footer-col col-md-4" style="text-align:center;float:none;width:100%;">
+                      <h3>Socially</h3>
+                      <ul class="list-inline">
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!--
+                  <div class="footer-col col-md-4">
+                      <h3>About Freelancer</h3>
+                      <p class="lead">Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                  </div>-->
+              </div>
+          </div>
+      </div>
+      <div class="footer-below">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      Copyright &copy; MUTHU KUMARAN
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- /container -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/js/script.min.js"></script>
+    <script src="/css-variables/js/main.js"></script>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-593e5e6045fcf52f"></script>
+
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+    this.page.url = 'http://iamkumaran.github.io/vue-js/vue-js-todo-app-part-2.html';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Vue.Js - Todo App Using Vuex - Part 2 - Page'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://iamkumaran.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100455951-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+    <!-- Load Facebook SDK for JavaScript
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+-->
+    <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  </body>
+</html>
