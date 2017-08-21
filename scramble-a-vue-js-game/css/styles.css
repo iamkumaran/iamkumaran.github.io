@@ -2,7 +2,7 @@ body{font-family: sans-serif;}
 .logo{text-align: center;}
 .site-logo{position:absolute;top: -14px;z-index:1;}
 .site-logo img{width:50px;height:50px;}
-.how-to-play{position: absolute;z-index: 2;width: 99%;height: 360px;background: rgba(255, 255, 255, 0.87);border-radius: 13px;top: 45px;padding: 13px;box-sizing: border-box;font-size: 18px;}
+.how-to-play{position: absolute;z-index: 2;width: 99%;height: 380px;background: rgba(255, 255, 255, 0.87);border-radius: 13px;top: 45px;padding: 13px;box-sizing: border-box;font-size: 18px;}
 #game-menu .site-logo{top: -6px;}
 #gameApp .game-container{
   position: relative;

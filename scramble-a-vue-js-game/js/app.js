@@ -414,9 +414,10 @@ Vue.component('letters', {
         <div class="how-to-play" v-if="showHowToPlayModal == true">
           <h3 style="text-align:center">How To Play</h3>
           <p>There are 5 jumbled letters. Arrange the letters to form possible WORDS.</p>
+          <p>Click on YELLOW balls to move letters up to form WORDS. <b>&lt;Submit&gt;</b> button will be enabled once there are 3 letters at top.</p>
           <p>At-least one 5 letter word is required to go next level.</p>
           <p>Find all words to earn bonus points {{$store.state.bonusScore}}.</p>
-          <br/>
+
           <p style="text-align:center"><button class="btn" v-on:click="showHowToPlayModal = false">Start</button></p>
         </div>
       </div>
