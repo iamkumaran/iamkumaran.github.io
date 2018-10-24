@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Image Composition</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    ul {
+      list-style: none;
+      border: 1px solid #000;
+      padding: 32px 30px;
+      display: inline-block;
+      margin-top: 75px;
+    }
+    div {
+      display: inline-block;
+      vertical-align: top;
+    }
+    figure {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+ 
+  <ul>
+    <li><h3>Click to add</h3></li>
+    <li><input type="checkbox" id="fries-chk"/> <label for="fries-chk">Add Fries</label></li>
+    <li><input type="checkbox" id="mcfloat-chk"/> <label for="mcfloat-chk">Add Coke</label></li>
+    <li><input type="checkbox" id="burger-chk"/> <label for="burger-chk">Add Burger</label></li>
+    <li><input type="checkbox" id="milk-jug-chk"/> <label for="milk-jug-chk">Add Burger</label></li>
+  </ul>
+  <div>
+    <figure id="box-meal"><img src="box-meal.png" /></figure>
+    <figure id="fries" style="display:none"><img src="fries.png" /></figure>
+    <figure id="mcfloat" style="display:none"><img src="mcfloat.png" /></figure>
+    <figure id="burger" style="display:none"><img src="burger.png" /></figure>
+    <figure id="milk-jug" style="display:none"><img src="milk-jug.png" /></figure>
+  </div>
+
+  <script>
+    document.querySelectorAll('input').forEach((element) => {
+      element.addEventListener('click', (e) => {
+        const elem = e.currentTarget;
+        const id = elem.getAttribute('id').replace('-chk', '');
+        if (elem.checked) {
+          document.getElementById(id).style.display = 'block';
+        } else {
+          document.getElementById(id).style.display = 'none';
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
