@@ -165,15 +165,4 @@ $(document).ready(function() {
         }
     });
 
-    var bg = new Trianglify({
-      x_colors: ["#e1f3fd", "#eeeeee", "#407dbf"],
-      y_colors: 'match_x',
-      width: document.body.clientWidth,
-      height: 150,
-      stroke_width: 0,
-      cell_size: 20
-    });
-
-    $('#jumbo').css('background-image', 'url(' + bg.png() + ')');
-
 });
